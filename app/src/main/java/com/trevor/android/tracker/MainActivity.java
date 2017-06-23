@@ -1,6 +1,7 @@
 package com.trevor.android.tracker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -90,11 +91,11 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         // Get the ID of the item that was selected and store it in itemThatWasClicked
         int itemThatWasClicked = item.getItemId();
-        //If the item's ID is R.id.overflow,
+        //If the item's ID is R.id.bar_button,
         // show a Toast and return true to tell Android that I've handled this menu click
-        if (itemThatWasClicked == R.id.overflow){
+        if (itemThatWasClicked == R.id.bar_button) {
             Context context = MainActivity.this;
-            String textToShow = "Menu Selected";
+            String textToShow = "Bar Button Tapped";
             Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
 
             return true;
@@ -128,29 +129,38 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListItemClicked(int clickedItemIndex){
-         /*
-         * Even if a Toast isn't showing, it's okay to cancel it. Doing so
-         * ensures that our new Toast will show immediately, rather than
-         * being delayed while other pending Toasts are shown.
-         *
-         * Comment out these three lines, run the app, and click on a bunch of
-         * different items if you're not sure what I'm talking about.
-         */
-        if (mToast != null) {
-            mToast.cancel();
-        }
-
-        // Show a Toast when an item is clicked, displaying that item number that was clicked
         /*
-         * Create a Toast and store it in our Toast field.
-         * The Toast that shows up will have a message similar to the following:
-         *
-         *                     Item #42 clicked.
+         * Storing the Context in a variable in this case is redundant since we could have
+         * just used "this" or "MainActivity.this" in the method call below. However, we
+         * wanted to demonstrate what parameter we were using "MainActivity.this" for as
+         * clear as possible.
          */
-        String toastMessage = "Item #" + clickedItemIndex + " clicked.";
-        mToast = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
+        Context context = MainActivity.this;
 
-        mToast.show();
+        /* This is the class that we want to start (and open) when the button is clicked. */
+        Class destinationActivity = ChildActivity.class;
+
+         /*
+         * Here, we create the Intent that will start the Activity we specified above in
+         * the destinationActivity variable. The constructor for an Intent also requires a
+         * context, which we stored in the variable named "context".
+         */
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+         /*
+         * We use the putExtra method of the Intent class to pass some extra stuff to the
+         * Activity that we are starting. Generally, this data is quite simple, such as
+         * a String or a number. However, there are ways to pass more complex objects.
+         */
+        String textEntered = getString(R.string.lorem_1_line) + "\n" + getString(R.string.lorem_1_line);
+        startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, textEntered);
+
+
+         /*
+         * Once the Intent has been created, we can use Activity's method, "startActivity"
+         * to start the ChildActivity.
+         */
+        startActivity(startChildActivityIntent);
     }
 
 }

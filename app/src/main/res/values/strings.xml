@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Tracker</string>
-    <string name="overflow">Overflow</string>
+    <string name="bar_button_text">Bar Button</string>
+    <string name="lorem_1_line">lorem ipsum</string>
 </resources>
