@@ -11,22 +11,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements GreenAdapter.ListItemClickListener{
 
     //Declare a TextView variable
-    private RecyclerView mFieldsListTextView;
     private static final int NUM_LIST_ITEMS = 100;
 
-   /*
-    * References to RecyclerView and Adapter to reset the list to its
-    * "pretty" state when the reset menu item is clicked.
-    */private GreenAdapter mAdapter;
-    private RecyclerView mNumbersList;
+
+    // References to RecyclerView and Adapter to reset the list to its
+    // "pretty" state when the reset menu item is clicked.
+    private GreenAdapter mAdapter;
+    private RecyclerView mFieldsListTextView;
+
+    /*
+     * If we hold a reference to our Toast, we can cancel it (if it's showing)
+     * to display a new Toast. If we didn't do this, Toasts would be delayed
+     * in showing up if you clicked many list items in quick succession.
+     */
+    private Toast mToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         /*
          * Using findViewById, we get a reference to our RecyclerView from xml. This allows us to
          * do things like set the adapter of the RecyclerView and toggle the visibility.
@@ -49,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
        /*
         Old string code for the list - can go?
-
         String[] fieldNames = FieldList.geFieldNames();
         //Loop through each toy and append the name to the TextView (add \n for spacing)
         for (String fieldName : fieldNames) {mFieldsListTextView.append(fieldName + "\n\n\n");
@@ -64,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
          /* The GreenAdapter is responsible for displaying each item in the list.
          */
-        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+        mAdapter = new GreenAdapter(NUM_LIST_ITEMS, this);
 
         mFieldsListTextView.setAdapter(mAdapter);
 
@@ -117,6 +124,33 @@ public class MainActivity extends AppCompatActivity {
             String textToShow = "onPostExecute executed";
             Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onListItemClicked(int clickedItemIndex){
+         /*
+         * Even if a Toast isn't showing, it's okay to cancel it. Doing so
+         * ensures that our new Toast will show immediately, rather than
+         * being delayed while other pending Toasts are shown.
+         *
+         * Comment out these three lines, run the app, and click on a bunch of
+         * different items if you're not sure what I'm talking about.
+         */
+        if (mToast != null) {
+            mToast.cancel();
+        }
+
+        // Show a Toast when an item is clicked, displaying that item number that was clicked
+        /*
+         * Create a Toast and store it in our Toast field.
+         * The Toast that shows up will have a message similar to the following:
+         *
+         *                     Item #42 clicked.
+         */
+        String toastMessage = "Item #" + clickedItemIndex + " clicked.";
+        mToast = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
+
+        mToast.show();
     }
 
 }
