@@ -16,8 +16,7 @@ public class MainActivity extends AppCompatActivity
         implements GreenAdapter.ListItemClickListener{
 
     //Declare a TextView variable
-    private static final int NUM_LIST_ITEMS = 100;
-
+    private static final int NUM_LIST_ITEMS = 24;
 
     // References to RecyclerView and Adapter to reset the list to its
     // "pretty" state when the reset menu item is clicked.
@@ -105,28 +104,6 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    // Create a class called DbQueryTask that extends AsyncTask<Object, Object, Cursor>
-    public class DbQueryTask extends AsyncTask<Object, Object, Cursor>{
-
-        // Override the doInBackground method to perform the query.
-        // Return the results.
-        @Override
-        protected Cursor doInBackground(Object... params) {
-            Context context = MainActivity.this;
-            String textToShow = "doInBackground executed";
-            Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
-            return null;
-        }
-
-        // Override onPostExecute to display the results in the TextView
-        @Override
-        protected void onPostExecute(Cursor result) {
-            Context context = MainActivity.this;
-            String textToShow = "onPostExecute executed";
-            Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
-        }
-    }
-
     @Override
     public void onListItemClicked(int clickedItemIndex){
         /*
@@ -161,6 +138,28 @@ public class MainActivity extends AppCompatActivity
          * to start the ChildActivity.
          */
         startActivity(startChildActivityIntent);
+    }
+
+    // Create a class called DbQueryTask that extends AsyncTask<Object, Object, Cursor>
+    public class DbQueryTask extends AsyncTask<Object, Object, Cursor> {
+
+        // Override the doInBackground method to perform the query.
+        // Return the results.
+        @Override
+        protected Cursor doInBackground(Object... params) {
+            Context context = MainActivity.this;
+            String textToShow = "doInBackground executed";
+            Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        // Override onPostExecute to display the results in the TextView
+        @Override
+        protected void onPostExecute(Cursor result) {
+            Context context = MainActivity.this;
+            String textToShow = "onPostExecute executed";
+            Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

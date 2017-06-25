@@ -21,9 +21,9 @@ public final class FieldList {
      * This method returns a list of popular toy names from the 20th and early 21st centuries.
      * I don't know about you guys, but this definitely brings me back to my childhood...
      *
-     * @return A list of popular toys
+     * @return A list db field names
      */
-    public static String[] geFieldNames() {
+    public static String[] getFieldNames() {
         return new String[] {
                 "Date",
                 "Period Start",
