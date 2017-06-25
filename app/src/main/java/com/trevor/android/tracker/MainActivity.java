@@ -120,9 +120,87 @@ public class MainActivity extends AppCompatActivity
          * clear as possible.
          */
         Context context = MainActivity.this;
+        Class destinationActivity = MainActivity.class;
+        int pointers[] = {clickedItemIndex, 0};
 
-        /* This is the class that we want to start (and open) when the button is clicked. */
-        Class destinationActivity = DataEntryActivity.class;
+        /* This chooses the class that we want to start (and open) when the button is clicked. */
+        switch (clickedItemIndex) {
+            case 0:
+                // TODO Specific Date Activities
+                //destinationActivity = EnterDateActivity.class;
+                break;
+            case 1:
+                //destinationActivity = EnterDateActivity.class;
+                break;
+            case 2:
+                //destinationActivity = EnterDateActivity.class;
+                break;
+            case 3:
+                //destinationActivity = EnterSpottingActivity.class;
+                destinationActivity = EnterBooleanActivity.class;
+                break;
+            case 4:
+                destinationActivity = EnterScaleActivity.class;
+                pointers[1] = 4;
+                //destinationActivity = EnterCrampingActivity.class;
+                break;
+            case 5:
+                //destinationActivity = EnterHeadacheActivity.class;
+                break;
+            case 6:
+                //destinationActivity = EnterShoulderPainActivity.class;
+                break;
+            case 7:
+                //destinationActivity = EnterSoreThroatActivity.class;
+                break;
+            case 8:
+                //destinationActivity = EnterDiarrheaActivity.class;
+                break;
+            case 9:
+                //destinationActivity = EnterFoodCravingsActivity.class;
+                break;
+            case 10:
+                //destinationActivity = EnterHungerActivity.class;
+                break;
+            case 11:
+                //destinationActivity = EnterSexPIVActivity.class;
+                break;
+            case 12:
+                //destinationActivity = EnterSexPIAActivity.class;
+                break;
+            case 13:
+                //destinationActivity = EnterSexHighDriveActivity.class;
+                break;
+            case 14:
+                //destinationActivity = EnterSexOralActivity.class;
+                break;
+            case 15:
+                //destinationActivity = EnterStepCountActivity.class;
+                break;
+            case 16:
+                //destinationActivity = EnterSleepHoursActivity.class;
+                break;
+            case 17:
+                //destinationActivity = EnterInsomniaActivity.class;
+                break;
+            case 18:
+                //destinationActivity = EnterNightmaresActivity.class;
+                break;
+            case 19:
+                //destinationActivity = EnterNightCallActivity.class;
+                break;
+            case 20:
+                //destinationActivity = EnterWorkHoursActivity.class;
+                break;
+            case 22:
+                //destinationActivity = EnterDistractedActivity.class;
+                break;
+            case 23:
+                //destinationActivity = EnterEnergyActivity.class;
+                break;
+
+        }
+
 
          /*
          * Here, we create the Intent that will start the Activity we specified above in
@@ -137,14 +215,13 @@ public class MainActivity extends AppCompatActivity
          * a String or a number. However, there are ways to pass more complex objects.
          */
 
-        String textEntered = "Text entered";
-        startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, textEntered);
-        startChildActivityIntent.putExtra("clickedItemIndex", clickedItemIndex);
+        //startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, textEntered);
+        startChildActivityIntent.putExtra("pointers", pointers);
 
 
          /*
          * Once the Intent has been created, we can use Activity's method, "startActivity"
-         * to start the DataEntryActivity.
+         * to start the DataEntryChooserActivity.
          */
         startActivity(startChildActivityIntent);
     }
