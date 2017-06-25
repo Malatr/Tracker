@@ -2,8 +2,6 @@ package com.trevor.android.tracker;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -57,7 +55,7 @@ public class MainActivity extends AppCompatActivity
 
        /*
         Old string code for the list - can go?
-        String[] fieldNames = FieldList.geFieldNames();
+        String[] fieldNames = SQLUtils.geFieldNames();
         //Loop through each toy and append the name to the TextView (add \n for spacing)
         for (String fieldName : fieldNames) {mFieldsListTextView.append(fieldName + "\n\n\n");
        }
@@ -76,6 +74,15 @@ public class MainActivity extends AppCompatActivity
         mFieldsListTextView.setAdapter(mAdapter);
 
 
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        //savedInstanceState.putInt(STATE_SCORE, mCurrentScore);
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
@@ -115,7 +122,7 @@ public class MainActivity extends AppCompatActivity
         Context context = MainActivity.this;
 
         /* This is the class that we want to start (and open) when the button is clicked. */
-        Class destinationActivity = ChildActivity.class;
+        Class destinationActivity = DataEntryActivity.class;
 
          /*
          * Here, we create the Intent that will start the Activity we specified above in
@@ -129,37 +136,17 @@ public class MainActivity extends AppCompatActivity
          * Activity that we are starting. Generally, this data is quite simple, such as
          * a String or a number. However, there are ways to pass more complex objects.
          */
-        String textEntered = getString(R.string.lorem_1_line) + "\n" + getString(R.string.lorem_1_line);
+
+        String textEntered = "Text entered";
         startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, textEntered);
+        startChildActivityIntent.putExtra("clickedItemIndex", clickedItemIndex);
 
 
          /*
          * Once the Intent has been created, we can use Activity's method, "startActivity"
-         * to start the ChildActivity.
+         * to start the DataEntryActivity.
          */
         startActivity(startChildActivityIntent);
-    }
-
-    // Create a class called DbQueryTask that extends AsyncTask<Object, Object, Cursor>
-    public class DbQueryTask extends AsyncTask<Object, Object, Cursor> {
-
-        // Override the doInBackground method to perform the query.
-        // Return the results.
-        @Override
-        protected Cursor doInBackground(Object... params) {
-            Context context = MainActivity.this;
-            String textToShow = "doInBackground executed";
-            Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
-            return null;
-        }
-
-        // Override onPostExecute to display the results in the TextView
-        @Override
-        protected void onPostExecute(Cursor result) {
-            Context context = MainActivity.this;
-            String textToShow = "onPostExecute executed";
-            Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
-        }
     }
 
 }

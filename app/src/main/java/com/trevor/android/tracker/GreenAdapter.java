@@ -94,18 +94,16 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     }
 
     // A class called NumberViewHolder that extends RecyclerView.ViewHolder
-
     /**
      * Cache of the children views for a list item.
      */
-
     class NumberViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        // Will display the position in the list, ie 0 through getItemCount() - 1
+        // Will display field names
         TextView listItemNumberView;
         // Will display which ViewHolder is displaying this data
-        TextView viewHolderIndex;
+        TextView viewHolderInputs;
 
         /**
          * Constructor for our ViewHolder. Within this constructor, we get a reference to our
@@ -118,8 +116,8 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         public NumberViewHolder(View itemView) {
             super(itemView);
 
-            listItemNumberView = (TextView) itemView.findViewById(R.id.text_view_item_number);
-            viewHolderIndex = (TextView) itemView.findViewById(R.id.text_view_holder_instance);
+            listItemNumberView = (TextView) itemView.findViewById(R.id.text_view_field_name);
+            viewHolderInputs = (TextView) itemView.findViewById(R.id.text_view_holder_inputs);
 
             //Call setOnClickListener on the View passed into the constructor (use 'this' as the
             // OnClickListener)
@@ -140,9 +138,10 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
          */
         public void bindHelper(ViewGroup viewGroup, int listIndex) {
             Context context = viewGroup.getContext();
-            String[] fieldName = FieldList.getFieldNames();
+            String[] fieldName = SQLUtils.getFieldNames();
+            String[] getRows = SQLUtils.getRows();
             listItemNumberView.setText(String.valueOf(fieldName[listIndex]));
-            viewHolderIndex.setText("buttons and shit");
+            viewHolderInputs.setText(String.valueOf(getRows[listIndex]));
 
             int backgroundColorForViewHolder = ColorUtils
                     .getViewHolderBackgroundColorFromInstance(context, listIndex);
