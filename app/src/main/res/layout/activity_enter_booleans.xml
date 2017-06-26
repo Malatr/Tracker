@@ -13,6 +13,7 @@
             android:id="@+id/text_view_get_boolean_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="boolean_activity_false"
             android:textSize="30sp"
             android:visibility="invisible" />
 
@@ -20,6 +21,7 @@
             android:id="@+id/text_view_get_boolean_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="boolean_activity_true"
             android:textSize="30sp"
             android:visibility="invisible" />
     </LinearLayout>

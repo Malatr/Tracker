@@ -2,4 +2,7 @@
     <string name="app_name">Tracker</string>
     <string name="bar_button_text">Bar Button</string>
     <string name="lorem_1_line">lorem ipsum</string>
+    <string name="delete_all_entries">Delete ALL Entries</string>
+    <string name="insert_dummy_data">Insert dummy data</string>
+    <string name="save_today_s_entries">Save Today\'s Entries</string>
 </resources>

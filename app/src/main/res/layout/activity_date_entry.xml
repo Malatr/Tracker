@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <EditText
             android:id="@+id/text_view_get_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

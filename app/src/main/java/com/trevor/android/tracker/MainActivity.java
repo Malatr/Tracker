@@ -2,6 +2,7 @@ package com.trevor.android.tracker;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,11 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.trevor.android.tracker.data.dbHelper;
+
 public class MainActivity extends AppCompatActivity
         implements GreenAdapter.ListItemClickListener{
 
     //Declare a TextView variable
-    private static final int NUM_LIST_ITEMS = 24;
+    private static final int NUM_LIST_ITEMS = 26;
 
     // References to RecyclerView and Adapter to reset the list to its
     // "pretty" state when the reset menu item is clicked.
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity
 
        /*
         Old string code for the list - can go?
-        String[] fieldNames = SQLUtils.geFieldNames();
+        String[] fieldNames = StringArrays.geFieldNames();
         //Loop through each toy and append the name to the TextView (add \n for spacing)
         for (String fieldName : fieldNames) {mFieldsListTextView.append(fieldName + "\n\n\n");
        }
@@ -73,7 +76,9 @@ public class MainActivity extends AppCompatActivity
 
         mFieldsListTextView.setAdapter(mAdapter);
 
-
+        // get the database
+        dbHelper mDbHelper = new dbHelper(this);
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
     }
 
     @Override
@@ -97,14 +102,24 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         // Get the ID of the item that was selected and store it in itemThatWasClicked
         int itemThatWasClicked = item.getItemId();
-        //If the item's ID is R.id.bar_button,
-        // show a Toast and return true to tell Android that I've handled this menu click
-        if (itemThatWasClicked == R.id.bar_button) {
-            Context context = MainActivity.this;
-            String textToShow = "Bar Button Tapped";
-            Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
+        String textToShow;
+        Context context = MainActivity.this;
 
-            return true;
+        // show a Toast with the label of the button and return true to tell Android that I've handled this menu click
+
+        switch (item.getItemId()) {
+            case R.id.bar_button:
+                textToShow = getString(R.string.bar_button_text) + " Tapped";
+                Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_delete_all_entries:
+                textToShow = getString(R.string.delete_all_entries) + " Tapped";
+                Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_insert_data:
+                //textToShow = getString(R.string.insert_dummy_data) + " Tapped";
+                //Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
+                return true;
         }
         //ElseIf we do NOT handle the menu click,
         // return super.onOptionsItemSelected to let Android handle the menu click

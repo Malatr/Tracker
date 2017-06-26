@@ -5,6 +5,16 @@
         android:id="@+id/bar_button"
         android:orderInCategory="1"
         android:title="@string/bar_button_text"
-        app:showAsAction="ifRoom"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_insert_data"
+        android:orderInCategory="1"
+        android:title="@string/save_today_s_entries"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_delete_all_entries"
+        android:orderInCategory="1"
+        android:title="@string/delete_all_entries"
+        app:showAsAction="never"
         />
 </menu>

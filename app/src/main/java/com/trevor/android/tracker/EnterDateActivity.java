@@ -17,17 +17,18 @@ public class EnterDateActivity extends AppCompatActivity {
 
     private TextView mDisplayTextView;
     private TextView mDisplayButton;
-
+    private int mActivityTitle;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Intent intentThatStartedThisActivity = getIntent();
         int pointers[] = intentThatStartedThisActivity.getIntArrayExtra("pointers");
-        int activityTitle = pointers[0];
-        setContentView(R.layout.activity_text_entry);
+        int mActivityTitle = pointers[0];
+        setContentView(R.layout.activity_date_entry);
 
-        setTitle("Choose date of " + toLowerCase(SQLUtils.getFieldNames()[activityTitle]) + " below");
+        setTitle("Choose date of " + toLowerCase(StringArrays.getFieldNames()[mActivityTitle]) + " below");
 
         mDisplayTextView = (TextView) findViewById(R.id.text_view_get_date);
         mDisplayTextView.setVisibility(View.VISIBLE);

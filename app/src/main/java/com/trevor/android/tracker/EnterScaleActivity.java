@@ -7,6 +7,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import static android.icu.lang.UCharacter.toLowerCase;
+import static com.trevor.android.tracker.StringArrays.RowValuesStrings;
+import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_FOUR;
+import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_NULL;
+import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_ONE;
+import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_THREE;
+import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_TWO;
 
 /**
  * Created by Trevor on 6/25/2017.
@@ -19,6 +25,7 @@ public class EnterScaleActivity extends AppCompatActivity {
     private TextView mButtonTwo;
     private TextView mButtonThree;
     private TextView mButtonFour;
+    private int mActivityTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,32 +33,50 @@ public class EnterScaleActivity extends AppCompatActivity {
 
         Intent intentThatStartedThisActivity = getIntent();
         int pointers[] = intentThatStartedThisActivity.getIntArrayExtra("pointers");
-        int activityTitle = pointers[0];
+        int mActivityTitle = pointers[0];
         setContentView(R.layout.activity_scale_entry);
 
-        // TODO SQL Query for data
+        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_NULL;
 
-        setTitle("Intensity of " + toLowerCase(SQLUtils.getFieldNames()[activityTitle]) + " today?");
+
+        setTitle("Intensity of " + toLowerCase(StringArrays.getFieldNames()[mActivityTitle]) + " today?");
 
         mDisplayCurrent = (TextView) findViewById(R.id.text_view_get_scale_zero);
         mDisplayCurrent.setVisibility(View.VISIBLE);
-        mDisplayCurrent.setText("0");
+        mDisplayCurrent.setText(SCALE_LEVEL_NULL);
 
         mButtonOne = (TextView) findViewById(R.id.text_view_get_scale_one);
         mButtonOne.setVisibility(View.VISIBLE);
-        mButtonOne.setText("1");
+        mButtonOne.setText(SCALE_LEVEL_ONE);
 
         mButtonTwo = (TextView) findViewById(R.id.text_view_get_scale_two);
         mButtonTwo.setVisibility(View.VISIBLE);
-        mButtonTwo.setText("2");
+        mButtonTwo.setText(SCALE_LEVEL_TWO);
 
         mButtonThree = (TextView) findViewById(R.id.text_view_get_scale_three);
         mButtonThree.setVisibility(View.VISIBLE);
-        mButtonThree.setText("3");
+        mButtonThree.setText(SCALE_LEVEL_THREE);
 
         mButtonFour = (TextView) findViewById(R.id.text_view_get_scale_four);
         mButtonFour.setVisibility(View.VISIBLE);
-        mButtonFour.setText("4");
+        mButtonFour.setText(SCALE_LEVEL_FOUR);
 
     }
+
+    public void scaleLevelOne(View view) {
+        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_ONE;
+    }
+
+    public void scaleLevelTwo(View view) {
+        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_TWO;
+    }
+
+    public void scaleLevelThree(View view) {
+        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_THREE;
+    }
+
+    public void scaleLevelFour(View view) {
+        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_FOUR;
+    }
+
 }

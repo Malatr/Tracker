@@ -16,6 +16,7 @@
         android:id="@+id/text_view_get_scale_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="scaleLevelOne"
         android:textSize="30sp"
         android:visibility="invisible" />
 
@@ -23,6 +24,7 @@
         android:id="@+id/text_view_get_scale_two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="scaleLevelTwo"
         android:textSize="30sp"
         android:visibility="invisible" />
 
@@ -30,6 +32,7 @@
         android:id="@+id/text_view_get_scale_three"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="scaleLevelThree"
         android:textSize="30sp"
         android:visibility="invisible" />
 
@@ -37,6 +40,7 @@
         android:id="@+id/text_view_get_scale_four"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="scaleLevelFour"
         android:textSize="30sp"
         android:visibility="invisible" />
 

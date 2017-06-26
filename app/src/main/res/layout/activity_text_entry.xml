@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <EditText
             android:id="@+id/text_view_get_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,6 +21,7 @@
             android:id="@+id/button_get_text_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="insertColumnEntry"
             android:textSize="30sp"
             android:visibility="invisible" />
 
