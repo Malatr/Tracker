@@ -141,7 +141,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
             String[] fieldName = SQLUtils.getFieldNames();
             String[] getRows = SQLUtils.getRows();
             listItemNumberView.setText(String.valueOf(fieldName[listIndex]));
-            viewHolderInputs.setText(String.valueOf(getRows[listIndex]));
+            //viewHolderInputs.setText(String.valueOf(getRows[listIndex]));
 
             int backgroundColorForViewHolder = ColorUtils
                     .getViewHolderBackgroundColorFromInstance(context, listIndex);

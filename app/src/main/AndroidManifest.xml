@@ -16,10 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DataEntryChooserActivity"></activity>
         <activity android:name=".EnterTextActivity"></activity>
         <activity android:name=".EnterScaleActivity"></activity>
         <activity android:name=".EnterBooleanActivity"></activity>
+        <activity android:name=".EnterDateActivity"></activity>
     </application>
 
 </manifest>

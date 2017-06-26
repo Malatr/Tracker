@@ -121,7 +121,8 @@ public class MainActivity extends AppCompatActivity
          */
         Context context = MainActivity.this;
         Class destinationActivity = MainActivity.class;
-        int pointers[] = {clickedItemIndex, 0};
+        // pointer[0] = clickedItemIndex, pointer[1] = , pointer[2] = ,
+        int pointers[] = {clickedItemIndex, 0, 0};
 
         /* This chooses the class that we want to start (and open) when the button is clicked. */
         switch (clickedItemIndex) {
@@ -130,9 +131,11 @@ public class MainActivity extends AppCompatActivity
                 //destinationActivity = EnterDateActivity.class;
                 break;
             case 1:
+                destinationActivity = EnterDateActivity.class;
                 //destinationActivity = EnterDateActivity.class;
                 break;
             case 2:
+                destinationActivity = EnterDateActivity.class;
                 //destinationActivity = EnterDateActivity.class;
                 break;
             case 3:
@@ -141,61 +144,78 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 4:
                 destinationActivity = EnterScaleActivity.class;
-                pointers[1] = 4;
                 //destinationActivity = EnterCrampingActivity.class;
                 break;
             case 5:
+                destinationActivity = EnterScaleActivity.class;
                 //destinationActivity = EnterHeadacheActivity.class;
                 break;
             case 6:
+                destinationActivity = EnterScaleActivity.class;
                 //destinationActivity = EnterShoulderPainActivity.class;
                 break;
             case 7:
+                destinationActivity = EnterScaleActivity.class;
                 //destinationActivity = EnterSoreThroatActivity.class;
                 break;
             case 8:
+                destinationActivity = EnterScaleActivity.class;
                 //destinationActivity = EnterDiarrheaActivity.class;
                 break;
             case 9:
+                destinationActivity = EnterScaleActivity.class;
                 //destinationActivity = EnterFoodCravingsActivity.class;
                 break;
             case 10:
                 //destinationActivity = EnterHungerActivity.class;
+                destinationActivity = EnterBooleanActivity.class;
                 break;
             case 11:
                 //destinationActivity = EnterSexPIVActivity.class;
+                destinationActivity = EnterBooleanActivity.class;
                 break;
             case 12:
                 //destinationActivity = EnterSexPIAActivity.class;
+                destinationActivity = EnterBooleanActivity.class;
                 break;
             case 13:
                 //destinationActivity = EnterSexHighDriveActivity.class;
+                destinationActivity = EnterBooleanActivity.class;
                 break;
             case 14:
                 //destinationActivity = EnterSexOralActivity.class;
+                destinationActivity = EnterBooleanActivity.class;
                 break;
             case 15:
+                destinationActivity = EnterTextActivity.class;
                 //destinationActivity = EnterStepCountActivity.class;
                 break;
             case 16:
+                destinationActivity = EnterTextActivity.class;
                 //destinationActivity = EnterSleepHoursActivity.class;
                 break;
             case 17:
+                destinationActivity = EnterScaleActivity.class;
                 //destinationActivity = EnterInsomniaActivity.class;
                 break;
             case 18:
                 //destinationActivity = EnterNightmaresActivity.class;
+                destinationActivity = EnterBooleanActivity.class;
                 break;
             case 19:
+                destinationActivity = EnterScaleActivity.class;
                 //destinationActivity = EnterNightCallActivity.class;
                 break;
             case 20:
+                destinationActivity = EnterTextActivity.class;
                 //destinationActivity = EnterWorkHoursActivity.class;
                 break;
             case 22:
                 //destinationActivity = EnterDistractedActivity.class;
+                destinationActivity = EnterBooleanActivity.class;
                 break;
             case 23:
+                destinationActivity = EnterScaleActivity.class;
                 //destinationActivity = EnterEnergyActivity.class;
                 break;
 

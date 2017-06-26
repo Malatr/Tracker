@@ -26,8 +26,6 @@ public class EnterBooleanActivity extends AppCompatActivity {
         int activityTitle = pointers[0];
         setContentView(R.layout.activity_enter_booleans);
 
-        // TODO SQL Query for data
-
         setTitle("Any " + toLowerCase(SQLUtils.getFieldNames()[activityTitle]) + " today?");
 
         mButtonOne = (TextView) findViewById(R.id.text_view_get_boolean_one);

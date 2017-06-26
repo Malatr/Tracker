@@ -27,7 +27,6 @@ public class EnterScaleActivity extends AppCompatActivity {
         Intent intentThatStartedThisActivity = getIntent();
         int pointers[] = intentThatStartedThisActivity.getIntArrayExtra("pointers");
         int activityTitle = pointers[0];
-        int numberOfButtons = pointers[1];
         setContentView(R.layout.activity_scale_entry);
 
         // TODO SQL Query for data
@@ -46,16 +45,13 @@ public class EnterScaleActivity extends AppCompatActivity {
         mButtonTwo.setVisibility(View.VISIBLE);
         mButtonTwo.setText("2");
 
-        if (numberOfButtons > 2) {
-            mButtonThree = (TextView) findViewById(R.id.text_view_get_scale_three);
-            mButtonThree.setVisibility(View.VISIBLE);
-            mButtonThree.setText("3");
+        mButtonThree = (TextView) findViewById(R.id.text_view_get_scale_three);
+        mButtonThree.setVisibility(View.VISIBLE);
+        mButtonThree.setText("3");
 
-            if (numberOfButtons > 3) {
-                mButtonFour = (TextView) findViewById(R.id.text_view_get_scale_four);
-                mButtonFour.setVisibility(View.VISIBLE);
-                mButtonFour.setText("4");
-            }
-        }
+        mButtonFour = (TextView) findViewById(R.id.text_view_get_scale_four);
+        mButtonFour.setVisibility(View.VISIBLE);
+        mButtonFour.setText("4");
+
     }
 }
