@@ -14,14 +14,16 @@ import android.widget.Toast;
 import com.trevor.android.tracker.data.dbHelper;
 
 public class MainActivity extends AppCompatActivity
-        implements GreenAdapter.ListItemClickListener{
+        implements PurpleAdapter.ListItemClickListener {
 
     //Declare a TextView variable
     private static final int NUM_LIST_ITEMS = 26;
 
     // References to RecyclerView and Adapter to reset the list to its
     // "pretty" state when the reset menu item is clicked.
-    private GreenAdapter mAdapter;
+    //private GreenAdapter mAdapter;
+    private PurpleAdapter mAdapter;
+
     private RecyclerView mFieldsListTextView;
 
     /*
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity
 
          /* The GreenAdapter is responsible for displaying each item in the list.
          */
-        mAdapter = new GreenAdapter(NUM_LIST_ITEMS, this);
+        mAdapter = new PurpleAdapter(NUM_LIST_ITEMS, this);
 
         mFieldsListTextView.setAdapter(mAdapter);
 
@@ -143,97 +145,48 @@ public class MainActivity extends AppCompatActivity
         switch (clickedItemIndex) {
             case 0:
                 // TODO Specific Date Activities
-                //destinationActivity = EnterDateActivity.class;
+                // next 4 lines are here for testing purposes: un-comment one line when you want
+                // to test that Activity
+                //destinationActivity = EnterBooleanActivity.class;
+                //destinationActivity = EnterTextActivity.class;
+                //destinationActivity = EnterScaleActivity.class;
+                destinationActivity = EnterDateActivity.class;
                 break;
             case 1:
-                destinationActivity = EnterDateActivity.class;
-                //destinationActivity = EnterDateActivity.class;
-                break;
             case 2:
-                destinationActivity = EnterDateActivity.class;
-                //destinationActivity = EnterDateActivity.class;
-                break;
             case 3:
-                //destinationActivity = EnterSpottingActivity.class;
-                destinationActivity = EnterBooleanActivity.class;
-                break;
             case 4:
-                destinationActivity = EnterScaleActivity.class;
-                //destinationActivity = EnterCrampingActivity.class;
+                destinationActivity = EnterMenstrualActivity.class;
                 break;
             case 5:
-                destinationActivity = EnterScaleActivity.class;
-                //destinationActivity = EnterHeadacheActivity.class;
-                break;
             case 6:
-                destinationActivity = EnterScaleActivity.class;
-                //destinationActivity = EnterShoulderPainActivity.class;
-                break;
             case 7:
-                destinationActivity = EnterScaleActivity.class;
-                //destinationActivity = EnterSoreThroatActivity.class;
+                destinationActivity = EnterPainActivity.class;
                 break;
             case 8:
-                destinationActivity = EnterScaleActivity.class;
-                //destinationActivity = EnterDiarrheaActivity.class;
-                break;
             case 9:
-                destinationActivity = EnterScaleActivity.class;
-                //destinationActivity = EnterFoodCravingsActivity.class;
-                break;
             case 10:
-                //destinationActivity = EnterHungerActivity.class;
-                destinationActivity = EnterBooleanActivity.class;
+                destinationActivity = EnterGastrointestinalActivity.class;
                 break;
             case 11:
-                //destinationActivity = EnterSexPIVActivity.class;
-                destinationActivity = EnterBooleanActivity.class;
-                break;
             case 12:
-                //destinationActivity = EnterSexPIAActivity.class;
-                destinationActivity = EnterBooleanActivity.class;
-                break;
             case 13:
-                //destinationActivity = EnterSexHighDriveActivity.class;
-                destinationActivity = EnterBooleanActivity.class;
-                break;
             case 14:
-                //destinationActivity = EnterSexOralActivity.class;
-                destinationActivity = EnterBooleanActivity.class;
+                destinationActivity = EnterSexualActivity.class;
                 break;
             case 15:
-                destinationActivity = EnterTextActivity.class;
-                //destinationActivity = EnterStepCountActivity.class;
-                break;
             case 16:
-                destinationActivity = EnterTextActivity.class;
-                //destinationActivity = EnterSleepHoursActivity.class;
-                break;
             case 17:
-                destinationActivity = EnterScaleActivity.class;
-                //destinationActivity = EnterInsomniaActivity.class;
-                break;
             case 18:
-                //destinationActivity = EnterNightmaresActivity.class;
-                destinationActivity = EnterBooleanActivity.class;
-                break;
             case 19:
-                destinationActivity = EnterScaleActivity.class;
-                //destinationActivity = EnterNightCallActivity.class;
+                destinationActivity = EnterSleepActivity.class;
                 break;
             case 20:
-                destinationActivity = EnterTextActivity.class;
-                //destinationActivity = EnterWorkHoursActivity.class;
-                break;
+            case 21:
             case 22:
-                //destinationActivity = EnterDistractedActivity.class;
-                destinationActivity = EnterBooleanActivity.class;
-                break;
             case 23:
-                destinationActivity = EnterScaleActivity.class;
-                //destinationActivity = EnterEnergyActivity.class;
+                destinationActivity = EnterMiscActivity.class;
                 break;
-
         }
 
 

@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
  * Created by Trevor on 6/25/2017.
  */
 
-public class EnterDateActivity extends AppCompatActivity {
+public class EnterSexualActivity extends AppCompatActivity {
 
     private int mActivityTitle;
 
@@ -21,7 +21,7 @@ public class EnterDateActivity extends AppCompatActivity {
         int mActivityTitle = pointers[0];
         setContentView(R.layout.activity_main);
 
-        setTitle("Change Date Page");
+        setTitle("Sexual Data Page");
     }
 
 }

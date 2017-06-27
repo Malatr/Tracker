@@ -12,14 +12,20 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EnterTextActivity"></activity>
-        <activity android:name=".EnterScaleActivity"></activity>
+
         <activity android:name=".EnterBooleanActivity"></activity>
         <activity android:name=".EnterDateActivity"></activity>
+        <activity android:name=".EnterGastrointestinalActivity"></activity>
+        <activity android:name=".EnterMenstrualActivity"></activity>
+        <activity android:name=".EnterMiscActivity"></activity>
+        <activity android:name=".EnterPainActivity"></activity>
+        <activity android:name=".EnterScaleActivity"></activity>
+        <activity android:name=".EnterSexualActivity"></activity>
+        <activity android:name=".EnterSleepActivity"></activity>
+        <activity android:name=".EnterTextActivity"></activity>
     </application>
 
 </manifest>
