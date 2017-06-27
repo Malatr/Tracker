@@ -6,13 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.trevor.android.tracker.data.StringArrays;
+
 import static android.icu.lang.UCharacter.toLowerCase;
-import static com.trevor.android.tracker.StringArrays.RowValuesStrings;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_FOUR;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_NULL;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_ONE;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_THREE;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_TWO;
+import static com.trevor.android.tracker.data.StringArrays.RowValuesStrings;
 
 /**
  * Created by Trevor on 6/25/2017.

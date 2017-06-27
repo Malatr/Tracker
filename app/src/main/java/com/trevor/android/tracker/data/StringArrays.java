@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.trevor.android.tracker;
+package com.trevor.android.tracker.data;
 
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_CALL_DURING_NIGHT;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_CRAMPING;

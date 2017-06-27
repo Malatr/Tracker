@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.trevor.android.tracker.data.StringArrays;
+
 /**
  * Created by Trevor on 6/22/2017.
  */

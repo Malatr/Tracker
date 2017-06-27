@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
+
+import com.trevor.android.tracker.data.StringArrays;
 
 import static android.icu.lang.UCharacter.toLowerCase;
-import static com.trevor.android.tracker.StringArrays.RowValuesStrings;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_NULL;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_ONE;
+import static com.trevor.android.tracker.data.StringArrays.RowValuesStrings;
 
 /**
  * Created by Trevor on 6/25/2017.
@@ -19,8 +21,8 @@ public class EnterBooleanActivity extends AppCompatActivity {
 
     public static final String YES = "Yes";
     public static final String NO = "No";
-    private TextView mButtonOne;
-    private TextView mButtonTwo;
+    private Button mButtonOne;
+    private Button mButtonTwo;
     private int mActivityTitle;
 
     @Override
@@ -34,11 +36,11 @@ public class EnterBooleanActivity extends AppCompatActivity {
 
         setTitle("Any " + toLowerCase(StringArrays.getFieldNames()[mActivityTitle]) + " today?");
 
-        mButtonOne = (TextView) findViewById(R.id.text_view_get_boolean_one);
+        mButtonOne = (Button) findViewById(R.id.text_view_get_boolean_one);
         mButtonOne.setVisibility(View.VISIBLE);
         mButtonOne.setText(YES);
 
-        mButtonTwo = (TextView) findViewById(R.id.text_view_get_boolean_two);
+        mButtonTwo = (Button) findViewById(R.id.text_view_get_boolean_two);
         mButtonTwo.setVisibility(View.VISIBLE);
         mButtonTwo.setText(NO);
 

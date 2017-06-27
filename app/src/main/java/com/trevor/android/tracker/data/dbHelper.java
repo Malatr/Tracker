@@ -5,8 +5,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static com.trevor.android.tracker.StringArrays.RowValuesStrings;
-import static com.trevor.android.tracker.StringArrays.getFieldNames;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_CALL_DURING_NIGHT;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_CRAMPING;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_DATE;
@@ -35,6 +33,8 @@ import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_WO
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_WORK_HOURS_DECIMAL;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.PRIMARY_KEY;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.TABLE_NAME;
+import static com.trevor.android.tracker.data.StringArrays.RowValuesStrings;
+import static com.trevor.android.tracker.data.StringArrays.getFieldNames;
 
 /**
  * Created by Trevor on 6/26/2017.
