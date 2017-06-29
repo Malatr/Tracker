@@ -34,13 +34,13 @@ public class ColorUtils {
     /**
      * This method returns the appropriate shade of Purple to form the gradient
      * seen in the list, based off of the order in which the
-     * com.trevor.android.recyclerview.PurpleAdapter.NumberViewHolder}
+     * com.trevor.android.recyclerview.LaunchAdapter.NumberViewHolder}
      * instance was created.
      *
      * This method is used to show how ViewHolders are recycled in a RecyclerView.
      * At first, the colors will form a nice, consistent gradient. As the
      * RecyclerView is scrolled, the
-     * com.trevor.android.recyclerview.PurpleAdapter.NumberViewHolder}'s will be
+     * com.trevor.android.recyclerview.LaunchAdapter.NumberViewHolder}'s will be
      * recycled and the list will no longer appear as a consistent gradient.
      *
      * @param context     Context for getting colors

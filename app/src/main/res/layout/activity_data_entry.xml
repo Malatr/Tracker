@@ -6,11 +6,10 @@
     tools:context="com.trevor.android.tracker.MainActivity">
 
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_field_names"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-        android:textSize="16sp"
-            />
+        android:id="@+id/rv_data_entry_names"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:textSize="16sp" />
 
 </FrameLayout>

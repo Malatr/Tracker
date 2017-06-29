@@ -26,6 +26,12 @@
         <activity android:name=".EnterSexualActivity"></activity>
         <activity android:name=".EnterSleepActivity"></activity>
         <activity android:name=".EnterTextActivity"></activity>
+        <activity android:name=".EnterMenstrualActivityFixedLayout"></activity>
+        <activity android:name=".EnterPainActivityFixedLayout"></activity>
+        <activity android:name=".EnterGastrointestinalActivityFixedLayout"></activity>
+        <activity android:name=".EnterSexualActivityFixedLayout"></activity>
+        <activity android:name=".EnterSleepActivityFixedLayout"></activity>
+        <activity android:name=".EnterMiscActivityFixedLayout"></activity>
     </application>
 
 </manifest>

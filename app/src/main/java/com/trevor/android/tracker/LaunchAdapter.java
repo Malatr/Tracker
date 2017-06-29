@@ -13,9 +13,9 @@ import com.trevor.android.tracker.data.StringHelper;
  * Created by Trevor on 6/22/2017.
  */
 
-public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHolder> {
+public class LaunchAdapter extends RecyclerView.Adapter<LaunchAdapter.NumberViewHolder> {
 
-    private static final String TAG = GreenAdapter.class.getSimpleName();
+    private static final String TAG = LaunchAdapter.class.getSimpleName();
     //The number of ViewHolders that have been created.
     private static int viewHolderCount;
     /*
@@ -33,7 +33,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
      * @param numberOfItems Number of items to display in list
      * @param listener
      */
-    public GreenAdapter(int numberOfItems, ListItemClickListener listener) {
+    public LaunchAdapter(int numberOfItems, ListItemClickListener listener) {
         mNumberItems = numberOfItems;
         mOnClickListener = listener;
         viewHolderCount = 0;
@@ -46,7 +46,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
      * @param viewGroup The ViewGroup that these ViewHolders are contained within.
      * @param viewType  If your RecyclerView has more than one type of item (which ours doesn't) you
      *                  can use this viewType integer to provide a different layout. See
-     *                  {@link android.support.v7.widget.RecyclerView.Adapter#getItemViewType(int)}
+     *                  {@link RecyclerView.Adapter#getItemViewType(int)}
      *                  for more details.
      * @return A new NumberViewHolder that holds the View for each list item
      */
@@ -96,6 +96,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     }
 
     // A class called NumberViewHolder that extends RecyclerView.ViewHolder
+
     /**
      * Cache of the children views for a list item.
      */
@@ -113,7 +114,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
          * onClick method below.
          *
          * @param itemView The View that you inflated in
-         *                 {@link GreenAdapter#onCreateViewHolder(ViewGroup, int)}
+         *                 {@link LaunchAdapter#onCreateViewHolder(ViewGroup, int)}
          */
         public NumberViewHolder(View itemView) {
             super(itemView);
@@ -140,10 +141,8 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
          */
         public void bindHelper(ViewGroup viewGroup, int listIndex) {
             Context context = viewGroup.getContext();
-            String[] fieldName = StringHelper.getGroupNames();
-            String[] getRows = StringHelper.getGroupNames();
-            listItemNumberView.setText(String.valueOf(fieldName[listIndex + 1]));
-            //viewHolderInputs.setText(String.valueOf(getRows[listIndex]));
+            String[] groupNames = StringHelper.getGroupNames();
+            listItemNumberView.setText(String.valueOf(groupNames[listIndex + 1]));
 
             int backgroundColorForViewHolder = ColorUtils
                     .getViewHolderBackgroundColorFromInstance(context, listIndex);

@@ -7,15 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.trevor.android.tracker.data.StringArrays;
+import com.trevor.android.tracker.data.StringHelper;
 
 /**
  * Created by Trevor on 6/22/2017.
  */
 
-public class PurpleAdapter extends RecyclerView.Adapter<PurpleAdapter.NumberViewHolder> {
+public class DataUIAdapter extends RecyclerView.Adapter<DataUIAdapter.NumberViewHolder> {
 
-    private static final String TAG = PurpleAdapter.class.getSimpleName();
+    private static final String TAG = DataUIAdapter.class.getSimpleName();
     //The number of ViewHolders that have been created.
     private static int viewHolderCount;
     /*
@@ -33,7 +33,7 @@ public class PurpleAdapter extends RecyclerView.Adapter<PurpleAdapter.NumberView
      * @param numberOfItems Number of items to display in list
      * @param listener
      */
-    public PurpleAdapter(int numberOfItems, ListItemClickListener listener) {
+    public DataUIAdapter(int numberOfItems, ListItemClickListener listener) {
         mNumberItems = numberOfItems;
         mOnClickListener = listener;
         viewHolderCount = 0;
@@ -54,6 +54,7 @@ public class PurpleAdapter extends RecyclerView.Adapter<PurpleAdapter.NumberView
     public NumberViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         vGroup = viewGroup;
         Context context = viewGroup.getContext();
+
         int layoutIdForListItem = R.layout.number_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
         boolean shouldAttachToParentImmediately = false;
@@ -61,7 +62,6 @@ public class PurpleAdapter extends RecyclerView.Adapter<PurpleAdapter.NumberView
         View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
         NumberViewHolder viewHolder = new NumberViewHolder(view);
 
-        viewHolderCount++;
         return viewHolder;
     }
 
@@ -114,14 +114,13 @@ public class PurpleAdapter extends RecyclerView.Adapter<PurpleAdapter.NumberView
          * onClick method below.
          *
          * @param itemView The View that you inflated in
-         *                 {@link PurpleAdapter#onCreateViewHolder(ViewGroup, int)}
+         *                 {@link DataUIAdapter#onCreateViewHolder(ViewGroup, int)}
          */
         public NumberViewHolder(View itemView) {
             super(itemView);
 
             listItemNumberView = (TextView) itemView.findViewById(R.id.text_view_field_name);
             viewHolderInputs = (TextView) itemView.findViewById(R.id.text_view_holder_inputs);
-
             //Call setOnClickListener on the View passed into the constructor (use 'this' as the
             // OnClickListener)
             itemView.setOnClickListener(this);
@@ -141,10 +140,9 @@ public class PurpleAdapter extends RecyclerView.Adapter<PurpleAdapter.NumberView
          */
         public void bindHelper(ViewGroup viewGroup, int listIndex) {
             Context context = viewGroup.getContext();
-            String[] fieldName = StringArrays.getFieldNames();
-            String[] getRows = StringArrays.getFieldNames();
-            listItemNumberView.setText(String.valueOf(fieldName[listIndex + 1]));
-            //viewHolderInputs.setText(String.valueOf(getRows[listIndex]));
+            String[] menstruationColumnNames = StringHelper.getMenstruationLabels();
+            //BP 3
+            listItemNumberView.setText(String.valueOf(menstruationColumnNames[listIndex]));
 
             int backgroundColorForViewHolder = ColorUtils
                     .getViewHolderBackgroundColorFromInstance(context, listIndex);

@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.trevor.android.tracker.data.StringArrays;
+import com.trevor.android.tracker.data.StringHelper;
 
 import static android.icu.lang.UCharacter.toLowerCase;
-import static com.trevor.android.tracker.data.StringArrays.RowValuesStrings;
+import static com.trevor.android.tracker.data.StringHelper.RowValuesStrings;
 
 /**
  * Created by Trevor on 6/25/2017.
@@ -30,7 +30,7 @@ public class EnterTextActivity extends AppCompatActivity {
         mActivityTitle = pointers[0];
         setContentView(R.layout.activity_text_entry);
 
-        setTitle("Choose date of " + toLowerCase(StringArrays.getFieldNames()[mActivityTitle]) + " below");
+        setTitle("Choose date of " + toLowerCase(StringHelper.getGroupNames()[mActivityTitle]) + " below");
 
         mDisplayTextView = (TextView) findViewById(R.id.text_view_get_text);
         mDisplayTextView.setVisibility(View.VISIBLE);

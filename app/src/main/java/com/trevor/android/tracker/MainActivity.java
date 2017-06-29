@@ -14,16 +14,15 @@ import android.widget.Toast;
 import com.trevor.android.tracker.data.dbHelper;
 
 public class MainActivity extends AppCompatActivity
-        implements PurpleAdapter.ListItemClickListener {
+        implements LaunchAdapter.ListItemClickListener {
 
     //Declare a TextView variable
-    private static final int NUM_LIST_ITEMS = 26;
+    private static final int NUM_LIST_ITEMS = 6;
 
     // References to RecyclerView and Adapter to reset the list to its
     // "pretty" state when the reset menu item is clicked.
     //private GreenAdapter mAdapter;
-    private PurpleAdapter mAdapter;
-
+    private LaunchAdapter mAdapter;
     private RecyclerView mFieldsListTextView;
 
     /*
@@ -59,14 +58,6 @@ public class MainActivity extends AppCompatActivity
         mFieldsListTextView.setLayoutManager(layoutManager);
 
        /*
-        Old string code for the list - can go?
-        String[] fieldNames = StringArrays.geFieldNames();
-        //Loop through each toy and append the name to the TextView (add \n for spacing)
-        for (String fieldName : fieldNames) {mFieldsListTextView.append(fieldName + "\n\n\n");
-       }
-       */
-
-       /*
          * Use this setting to improve performance if you know that changes in content do not
          * change the child layout size in the RecyclerView
          */
@@ -74,7 +65,7 @@ public class MainActivity extends AppCompatActivity
 
          /* The GreenAdapter is responsible for displaying each item in the list.
          */
-        mAdapter = new PurpleAdapter(NUM_LIST_ITEMS, this);
+        mAdapter = new LaunchAdapter(NUM_LIST_ITEMS, this);
 
         mFieldsListTextView.setAdapter(mAdapter);
 
@@ -144,48 +135,28 @@ public class MainActivity extends AppCompatActivity
         /* This chooses the class that we want to start (and open) when the button is clicked. */
         switch (clickedItemIndex) {
             case 0:
-                // TODO Specific Date Activities
+                // TODO Specific Date Activities & Call that activity
                 // next 4 lines are here for testing purposes: un-comment one line when you want
                 // to test that Activity
                 //destinationActivity = EnterBooleanActivity.class;
                 //destinationActivity = EnterTextActivity.class;
                 //destinationActivity = EnterScaleActivity.class;
-                destinationActivity = EnterDateActivity.class;
+                destinationActivity = EnterMenstrualActivityFixedLayout.class;
                 break;
             case 1:
+                destinationActivity = EnterMenstrualActivityFixedLayout.class;
+                break;
             case 2:
+                destinationActivity = EnterPainActivityFixedLayout.class;
+                break;
             case 3:
+                destinationActivity = EnterGastrointestinalActivityFixedLayout.class;
+                break;
             case 4:
-                destinationActivity = EnterMenstrualActivity.class;
+                destinationActivity = EnterSexualActivityFixedLayout.class;
                 break;
             case 5:
-            case 6:
-            case 7:
-                destinationActivity = EnterPainActivity.class;
-                break;
-            case 8:
-            case 9:
-            case 10:
-                destinationActivity = EnterGastrointestinalActivity.class;
-                break;
-            case 11:
-            case 12:
-            case 13:
-            case 14:
-                destinationActivity = EnterSexualActivity.class;
-                break;
-            case 15:
-            case 16:
-            case 17:
-            case 18:
-            case 19:
-                destinationActivity = EnterSleepActivity.class;
-                break;
-            case 20:
-            case 21:
-            case 22:
-            case 23:
-                destinationActivity = EnterMiscActivity.class;
+                destinationActivity = EnterSleepActivityFixedLayout.class;
                 break;
         }
 

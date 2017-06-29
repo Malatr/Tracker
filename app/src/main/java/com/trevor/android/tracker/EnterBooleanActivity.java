@@ -6,12 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.trevor.android.tracker.data.StringArrays;
+import com.trevor.android.tracker.data.StringHelper;
 
 import static android.icu.lang.UCharacter.toLowerCase;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_NULL;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_ONE;
-import static com.trevor.android.tracker.data.StringArrays.RowValuesStrings;
+import static com.trevor.android.tracker.data.StringHelper.RowValuesStrings;
 
 /**
  * Created by Trevor on 6/25/2017.
@@ -34,7 +34,7 @@ public class EnterBooleanActivity extends AppCompatActivity {
         int mActivityTitle = pointers[0];
         setContentView(R.layout.activity_enter_booleans);
 
-        setTitle("Any " + toLowerCase(StringArrays.getFieldNames()[mActivityTitle]) + " today?");
+        setTitle("Any " + toLowerCase(StringHelper.getGroupNames()[mActivityTitle]) + " today?");
 
         mButtonOne = (Button) findViewById(R.id.text_view_get_boolean_one);
         mButtonOne.setVisibility(View.VISIBLE);

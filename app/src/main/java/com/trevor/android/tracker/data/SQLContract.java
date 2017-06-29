@@ -16,6 +16,7 @@ public final class SQLContract {
         public static final String TABLE_NAME = "jessica";
         public static final String PRIMARY_KEY = "_id";
         public static final String COLUMN_NAME_DATE = "date";
+
         public static final String COLUMN_NAME_PERIOD_START = "periodstart";
         public static final String COLUMN_NAME_PERIOD_END = "periodend";
         public static final String COLUMN_NAME_SPOTTING = "spotting";
@@ -33,9 +34,8 @@ public final class SQLContract {
         public static final String COLUMN_NAME_SEX_PIA = "sexpia";
         public static final String COLUMN_NAME_SEX_ORAL = "sex oral";
         public static final String COLUMN_NAME_HIGH_SEX_DRIVE = "highsexdrive";
-
+        public static final String COLUMN_NAME_HERPES_OUTBREAK = "herpesoutbreak";
         public static final String COLUMN_NAME_STEPS = "steps";
-
         public static final String COLUMN_NAME_SLEEP_TIME = "sleeptimewhole";
         public static final String COLUMN_NAME_SLEEP_TIME_DECIMAL = "sleeptimedecimal";
         public static final String COLUMN_NAME_INSOMNIA = "insomnia";

@@ -33,8 +33,8 @@ import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_WO
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_WORK_HOURS_DECIMAL;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.PRIMARY_KEY;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.TABLE_NAME;
-import static com.trevor.android.tracker.data.StringArrays.RowValuesStrings;
-import static com.trevor.android.tracker.data.StringArrays.getFieldNames;
+import static com.trevor.android.tracker.data.StringHelper.RowValuesStrings;
+import static com.trevor.android.tracker.data.StringHelper.getGroupNames;
 
 /**
  * Created by Trevor on 6/26/2017.
@@ -85,7 +85,7 @@ public class dbHelper extends SQLiteOpenHelper {
 
     public static void insertRow() {
         int its = 1;
-        String[] rowIndexStrings = getFieldNames();
+        String[] rowIndexStrings = getGroupNames();
         for (int i = 1; i < its; i++) {
             ContentValues values = new ContentValues();
             values.put(rowIndexStrings[i], RowValuesStrings[i]);

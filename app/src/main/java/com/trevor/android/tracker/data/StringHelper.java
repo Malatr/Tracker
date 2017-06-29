@@ -24,6 +24,7 @@ import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_EN
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_FOCUS;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_FOOD_CRAVINGS;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_HEADACHE;
+import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_HERPES_OUTBREAK;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_HIGH_SEX_DRIVE;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_INSOMNIA;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_NIGHTMARES;
@@ -43,7 +44,22 @@ import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_WO
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_WORK_HOURS_DECIMAL;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.PRIMARY_KEY;
 
-public final class StringArrays {
+public final class StringHelper {
+
+
+    public static final String GROUP_NAME_ONE = "Tap here to change date";
+    public static final String GROUP_NAME_TWO = "Start with menstruation";
+    public static final String GROUP_NAME_THREE = "Start with pain";
+    public static final String GROUP_NAME_FOUR = "Start with GI issues";
+    public static final String GROUP_NAME_FIVE = "Start with sex";
+    public static final String GROUP_NAME_SIX = "Start with steps and sleep";
+    public static final String GROUP_NAME_SEVEN = "Not a valid option";
+    public static final String MENSTRUAL_DATA_TITLE = "Menstruation Data";
+    public static final String PAIN_DATA_TITLE = "Pain Data";
+    public static final String GASTROINTESTINAL_DATA_TITLE = "Gastrointestinal Data";
+    public static final String SEXUAL_DATA_TITLE = "Sexual Data";
+    public static final String SLEEP_DATA_TITLE = "Steps and Sleep Data";
+    public static final String MISC_DATA_TITLE = "Miscellaneous Data";
 
     public static String[] RowValuesStrings;
 
@@ -71,6 +87,7 @@ public final class StringArrays {
                 COLUMN_NAME_SEX_PIA, // INTEGER
                 COLUMN_NAME_SEX_ORAL, // INTEGER
                 COLUMN_NAME_HIGH_SEX_DRIVE, // INTEGER
+                COLUMN_NAME_HERPES_OUTBREAK, // INTEGER
                 COLUMN_NAME_STEPS, // INTEGER
                 COLUMN_NAME_SLEEP_TIME, // INTEGER
                 COLUMN_NAME_SLEEP_TIME_DECIMAL,
@@ -84,35 +101,85 @@ public final class StringArrays {
                 COLUMN_NAME_ENERGY, // INTEGER
         };
     }
-    public static String[] getFieldNames() {
+
+    public static String[] getGroupNames() {
         return new String[] {
-                PRIMARY_KEY,
-                COLUMN_NAME_DATE,
-                COLUMN_NAME_PERIOD_START,
-                COLUMN_NAME_PERIOD_END,
-                COLUMN_NAME_SPOTTING,
-                COLUMN_NAME_CRAMPING,
-                COLUMN_NAME_HEADACHE,
-                COLUMN_NAME_SHOULDER_PAIN,
-                COLUMN_NAME_SORE_THROAT,
-                COLUMN_NAME_DIARRHEA,
-                COLUMN_NAME_FOOD_CRAVINGS,
-                COLUMN_NAME_UNREASONABLE_HUNGER,
-                COLUMN_NAME_SEX_PIV,
-                COLUMN_NAME_SEX_PIA,
-                COLUMN_NAME_SEX_ORAL,
-                COLUMN_NAME_HIGH_SEX_DRIVE,
-                COLUMN_NAME_STEPS,
-                COLUMN_NAME_SLEEP_TIME,
+                "NULL",
+                GROUP_NAME_ONE,
+                GROUP_NAME_TWO,
+                GROUP_NAME_THREE,
+                GROUP_NAME_FOUR,
+                GROUP_NAME_FIVE,
+                GROUP_NAME_SIX,
+                GROUP_NAME_SEVEN
+        };
+    }
+
+    public static String[] getMenstruationLabels() {
+        return new String[]{
+                MENSTRUAL_DATA_TITLE,
+                COLUMN_NAME_PERIOD_START, // TEXT
+                COLUMN_NAME_PERIOD_END, // TEXT
+                COLUMN_NAME_SPOTTING, // INTEGER
+                COLUMN_NAME_CRAMPING // INTEGER
+
+        };
+    }
+
+    public static String[] getPainLabels() {
+        return new String[]{
+                PAIN_DATA_TITLE,
+                COLUMN_NAME_HEADACHE, // INTEGER
+                COLUMN_NAME_SHOULDER_PAIN, // INTEGER
+                COLUMN_NAME_SORE_THROAT, // INTEGER
+
+        };
+    }
+
+    public static String[] getGastrointestinalLabels() {
+        return new String[]{
+                GASTROINTESTINAL_DATA_TITLE,
+                COLUMN_NAME_DIARRHEA, // INTEGER
+                COLUMN_NAME_FOOD_CRAVINGS, // INTEGER
+                COLUMN_NAME_UNREASONABLE_HUNGER, // INTEGER
+
+        };
+    }
+
+    public static String[] getSexualLabels() {
+        return new String[]{
+                SEXUAL_DATA_TITLE,
+                COLUMN_NAME_SEX_PIV, // INTEGER
+                COLUMN_NAME_SEX_PIA, // INTEGER
+                COLUMN_NAME_SEX_ORAL, // INTEGER
+                COLUMN_NAME_HIGH_SEX_DRIVE, // INTEGER
+                COLUMN_NAME_HERPES_OUTBREAK, // INTEGER
+
+        };
+    }
+
+    public static String[] getSleepLabels() {
+        return new String[]{
+                SLEEP_DATA_TITLE,
+                COLUMN_NAME_STEPS, // INTEGER
+                COLUMN_NAME_SLEEP_TIME, // INTEGER
                 COLUMN_NAME_SLEEP_TIME_DECIMAL,
-                COLUMN_NAME_INSOMNIA,
-                COLUMN_NAME_NIGHTMARES,
-                COLUMN_NAME_CALL_DURING_NIGHT,
-                COLUMN_NAME_WORK_HOURS,
-                COLUMN_NAME_WORK_HOURS_DECIMAL,
-                COLUMN_NAME_EMOTION,
-                COLUMN_NAME_FOCUS,
-                COLUMN_NAME_ENERGY,
+                COLUMN_NAME_INSOMNIA, // INTEGER
+                COLUMN_NAME_NIGHTMARES, // INTEGER
+                COLUMN_NAME_CALL_DURING_NIGHT // INTEGER
+
+        };
+    }
+
+    public static String[] getMiscLabels() {
+        return new String[]{
+                MISC_DATA_TITLE,
+                COLUMN_NAME_WORK_HOURS, // INTEGER
+                COLUMN_NAME_WORK_HOURS_DECIMAL, // INTEGER
+                COLUMN_NAME_EMOTION, // INTEGER
+                COLUMN_NAME_FOCUS, //INTEGER
+                COLUMN_NAME_ENERGY, // INTEGER
+
         };
     }
 
