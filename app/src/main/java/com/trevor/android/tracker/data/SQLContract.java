@@ -54,5 +54,9 @@ public final class SQLContract {
         public static final String SCALE_LEVEL_THREE = "3";
         public static final String SCALE_LEVEL_FOUR = "4";
 
+        public static final int DATABASE_COLUMN_QUANTITY = 27;
+
+
+
     }
 }

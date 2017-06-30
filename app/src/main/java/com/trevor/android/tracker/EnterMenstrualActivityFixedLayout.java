@@ -37,6 +37,7 @@ public class EnterMenstrualActivityFixedLayout extends AppCompatActivity {
     //Button periodStartEntryView;
     Button nextButton;
     private String[] mLabels;
+    private String[] mRowValuesStrings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +45,8 @@ public class EnterMenstrualActivityFixedLayout extends AppCompatActivity {
         // Set outer wrapper view xml for layout
         setContentView(R.layout.activity_menstruation_data);
         mLabels = StringHelper.getMenstruationLabels();
+        mRowValuesStrings = StringHelper.rowValuesStrings;
         setTitle(mLabels[0]);
-
 
         periodStartLabelView = (TextView) findViewById(R.id.text_view_period_start_label);
         periodStartLabelView.setText(mLabels[1]);
@@ -60,15 +61,17 @@ public class EnterMenstrualActivityFixedLayout extends AppCompatActivity {
         spottingLabelView = (TextView) findViewById(R.id.text_view_spotting_label);
         spottingLabelView.setText(mLabels[4]);
         spottingNo = (RadioButton) findViewById(R.id.spotting_no);
-        spottingYes = (RadioButton) findViewById(R.id.spotting_yes);
         spottingNo.setText("No");
+        spottingNo.setSelected(true);
+        spottingYes = (RadioButton) findViewById(R.id.spotting_yes);
         spottingYes.setText("Yes");
 
         crampsLabelView = (TextView) findViewById(R.id.text_view_cramps_label);
         crampsLabelView.setText(mLabels[3]);
         crampsNo = (RadioButton) findViewById(R.id.cramps_no);
-        crampsYes = (RadioButton) findViewById(R.id.cramps_yes);
         crampsNo.setText("No");
+        crampsNo.setSelected(true);
+        crampsYes = (RadioButton) findViewById(R.id.cramps_yes);
         crampsYes.setText("Yes");
 
 
@@ -82,22 +85,23 @@ public class EnterMenstrualActivityFixedLayout extends AppCompatActivity {
 
         // Check which radio button was clicked
         switch (view.getId()) {
-            case R.id.cramps_no:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-            case R.id.cramps_yes:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
             case R.id.spotting_no:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[4] = "0";
                     break;
             case R.id.spotting_yes:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[4] = "1";
+                break;
+            case R.id.cramps_no:
+                if (checked)
+                    mRowValuesStrings[5] = "0";
                     break;
+            case R.id.cramps_yes:
+                if (checked)
+                    mRowValuesStrings[5] = "1";
+                break;
+
         }
     }
 
@@ -132,11 +136,11 @@ public class EnterMenstrualActivityFixedLayout extends AppCompatActivity {
                 textToShow = getString(R.string.bar_button_text) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_delete_all_entries:
+            case R.id.action_retrieve_entries:
                 textToShow = getString(R.string.delete_all_entries) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_insert_data:
+            case R.id.action_retrieve_data:
                 //textToShow = getString(R.string.insert_dummy_data) + " Tapped";
                 //Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
@@ -147,6 +151,11 @@ public class EnterMenstrualActivityFixedLayout extends AppCompatActivity {
     }
 
     public void button_menstruation_next(View view) {
+        mRowValuesStrings[1] = "Do date things";
+        mRowValuesStrings[2] = periodStartEntryView.getText().toString().trim();
+        mRowValuesStrings[3] = periodEndEntryView.getText().toString().trim();
+
+
         /*
          * Storing the Context in a variable in this case is redundant since we could have
          * just used "this" or "EnterMenstrualActivity.this" in the method call below. However, we

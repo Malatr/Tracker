@@ -14,7 +14,7 @@ import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_NU
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_ONE;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_THREE;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_TWO;
-import static com.trevor.android.tracker.data.StringHelper.RowValuesStrings;
+import static com.trevor.android.tracker.data.StringHelper.rowValuesStrings;
 
 /**
  * Created by Trevor on 6/25/2017.
@@ -38,7 +38,7 @@ public class EnterScaleActivity extends AppCompatActivity {
         int mActivityTitle = pointers[0];
         setContentView(R.layout.activity_scale_entry);
 
-        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_NULL;
+        rowValuesStrings[mActivityTitle] = SCALE_LEVEL_NULL;
 
 
         setTitle("Intensity of " + toLowerCase(StringHelper.getGroupNames()[mActivityTitle]) + " today?");
@@ -66,19 +66,19 @@ public class EnterScaleActivity extends AppCompatActivity {
     }
 
     public void scaleLevelOne(View view) {
-        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_ONE;
+        rowValuesStrings[mActivityTitle] = SCALE_LEVEL_ONE;
     }
 
     public void scaleLevelTwo(View view) {
-        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_TWO;
+        rowValuesStrings[mActivityTitle] = SCALE_LEVEL_TWO;
     }
 
     public void scaleLevelThree(View view) {
-        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_THREE;
+        rowValuesStrings[mActivityTitle] = SCALE_LEVEL_THREE;
     }
 
     public void scaleLevelFour(View view) {
-        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_FOUR;
+        rowValuesStrings[mActivityTitle] = SCALE_LEVEL_FOUR;
     }
 
 }

@@ -56,8 +56,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_insomnia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/insomnia_zero"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -104,8 +106,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_nightmares"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/nightmares_no"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -134,8 +138,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_night_calls"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/night_calls_zero"
                 android:orientation="horizontal">
 
                 <RadioButton

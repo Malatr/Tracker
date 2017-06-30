@@ -102,11 +102,11 @@ public class EnterMenstrualActivity extends AppCompatActivity implements DataUIA
                 textToShow = getString(R.string.bar_button_text) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_delete_all_entries:
+            case R.id.action_retrieve_entries:
                 textToShow = getString(R.string.delete_all_entries) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_insert_data:
+            case R.id.action_retrieve_data:
                 //textToShow = getString(R.string.insert_dummy_data) + " Tapped";
                 //Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;

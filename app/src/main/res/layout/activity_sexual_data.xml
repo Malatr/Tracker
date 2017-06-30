@@ -21,8 +21,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_sex_piv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/sex_piv_zero"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -51,8 +53,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_sex_pia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/sex_pia_zero"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -81,8 +85,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_sex_oral"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/sex_oral_zero"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -111,8 +117,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_high_sex_drive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/high_sex_drive_zero"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -141,8 +149,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_herpes_outbreak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/herpes_outbreak_zero"
                 android:orientation="horizontal">
 
                 <RadioButton

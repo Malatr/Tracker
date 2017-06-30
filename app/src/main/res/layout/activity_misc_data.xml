@@ -39,8 +39,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_emotion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/emotion_zero"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -87,8 +89,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_focus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/focus_no"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -117,8 +121,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_energy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/energy_zero"
                 android:orientation="horizontal">
 
                 <RadioButton

@@ -32,6 +32,7 @@
         <activity android:name=".EnterSexualActivityFixedLayout"></activity>
         <activity android:name=".EnterSleepActivityFixedLayout"></activity>
         <activity android:name=".EnterMiscActivityFixedLayout"></activity>
+        <activity android:name=".ShowSummaryActivityFixedLayout"></activity>
     </application>
 
 </manifest>

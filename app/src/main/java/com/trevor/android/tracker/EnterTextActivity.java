@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.trevor.android.tracker.data.StringHelper;
 
 import static android.icu.lang.UCharacter.toLowerCase;
-import static com.trevor.android.tracker.data.StringHelper.RowValuesStrings;
+import static com.trevor.android.tracker.data.StringHelper.rowValuesStrings;
 
 /**
  * Created by Trevor on 6/25/2017.
@@ -44,6 +44,6 @@ public class EnterTextActivity extends AppCompatActivity {
     }
 
     private void insertColumnEntry() {
-        RowValuesStrings[mActivityTitle] = findViewById(R.id.text_view_get_text).toString().trim();
+        rowValuesStrings[mActivityTitle] = findViewById(R.id.text_view_get_text).toString().trim();
     }
 }

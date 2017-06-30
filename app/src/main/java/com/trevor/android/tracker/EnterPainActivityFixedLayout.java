@@ -27,23 +27,24 @@ public class EnterPainActivityFixedLayout extends AppCompatActivity {
     RadioButton headacheThree;
     RadioButton headacheFour;
 
-    TextView shoulder_painLabelView;
-    RadioButton shoulder_painZero;
-    RadioButton shoulder_painOne;
-    RadioButton shoulder_painTwo;
-    RadioButton shoulder_painThree;
-    RadioButton shoulder_painFour;
+    TextView shoulderPainLabelView;
+    RadioButton shoulderPainZero;
+    RadioButton shoulderPainOne;
+    RadioButton shoulderPainTwo;
+    RadioButton shoulderPainThree;
+    RadioButton shoulderPainFour;
 
-    TextView sore_throatLabelView;
-    RadioButton sore_throatZero;
-    RadioButton sore_throatOne;
-    RadioButton sore_throatTwo;
-    RadioButton sore_throatThree;
-    RadioButton sore_throatFour;
+    TextView soreThroatLabelView;
+    RadioButton soreThroatZero;
+    RadioButton soreThroatOne;
+    RadioButton soreThroatTwo;
+    RadioButton soreThroatThree;
+    RadioButton soreThroatFour;
 
     //Button periodStartEntryView;
     Button nextButton;
     private String[] mLabels;
+    private String[] mRowValuesStrings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,33 +52,50 @@ public class EnterPainActivityFixedLayout extends AppCompatActivity {
         // Set outer wrapper view xml for layout
         setContentView(R.layout.activity_pain_data);
         mLabels = StringHelper.getPainLabels();
+        mRowValuesStrings = StringHelper.rowValuesStrings;
         setTitle(mLabels[0]);
+
         headacheLabelView = (TextView) findViewById(R.id.text_view_headache_label);
         headacheLabelView.setText(mLabels[1]);
         headacheZero = (RadioButton) findViewById(R.id.headache_zero);
-        headacheOne = (RadioButton) findViewById(R.id.headache_one);
-        headacheTwo = (RadioButton) findViewById(R.id.headache_two);
-        headacheThree = (RadioButton) findViewById(R.id.headache_three);
-        headacheFour = (RadioButton) findViewById(R.id.headache_four);
         headacheZero.setSelected(true);
+        headacheZero.setText("0");
+        headacheOne = (RadioButton) findViewById(R.id.headache_one);
+        headacheOne.setText("1");
+        headacheTwo = (RadioButton) findViewById(R.id.headache_two);
+        headacheTwo.setText("2");
+        headacheThree = (RadioButton) findViewById(R.id.headache_three);
+        headacheThree.setText("3");
+        headacheFour = (RadioButton) findViewById(R.id.headache_four);
+        headacheFour.setText("4");
 
-        shoulder_painLabelView = (TextView) findViewById(R.id.text_view_shoulder_pain_label);
-        shoulder_painLabelView.setText(mLabels[2]);
-        shoulder_painZero = (RadioButton) findViewById(R.id.shoulder_pain_zero);
-        shoulder_painOne = (RadioButton) findViewById(R.id.shoulder_pain_one);
-        shoulder_painTwo = (RadioButton) findViewById(R.id.shoulder_pain_two);
-        shoulder_painThree = (RadioButton) findViewById(R.id.shoulder_pain_three);
-        shoulder_painFour = (RadioButton) findViewById(R.id.shoulder_pain_four);
-        shoulder_painZero.setSelected(true);
+        shoulderPainLabelView = (TextView) findViewById(R.id.text_view_shoulder_pain_label);
+        shoulderPainLabelView.setText(mLabels[2]);
+        shoulderPainZero = (RadioButton) findViewById(R.id.shoulder_pain_zero);
+        shoulderPainZero.setSelected(true);
+        shoulderPainZero.setText("0");
+        shoulderPainOne = (RadioButton) findViewById(R.id.shoulder_pain_one);
+        shoulderPainOne.setText("1");
+        shoulderPainTwo = (RadioButton) findViewById(R.id.shoulder_pain_two);
+        shoulderPainTwo.setText("2");
+        shoulderPainThree = (RadioButton) findViewById(R.id.shoulder_pain_three);
+        shoulderPainThree.setText("3");
+        shoulderPainFour = (RadioButton) findViewById(R.id.shoulder_pain_four);
+        shoulderPainFour.setText("4");
 
-        sore_throatLabelView = (TextView) findViewById(R.id.text_view_sore_throat_label);
-        sore_throatLabelView.setText(mLabels[3]);
-        sore_throatZero = (RadioButton) findViewById(R.id.sore_throat_zero);
-        sore_throatOne = (RadioButton) findViewById(R.id.sore_throat_one);
-        sore_throatTwo = (RadioButton) findViewById(R.id.sore_throat_two);
-        sore_throatThree = (RadioButton) findViewById(R.id.sore_throat_three);
-        sore_throatFour = (RadioButton) findViewById(R.id.sore_throat_four);
-        sore_throatZero.setSelected(true);
+        soreThroatLabelView = (TextView) findViewById(R.id.text_view_sore_throat_label);
+        soreThroatLabelView.setText(mLabels[3]);
+        soreThroatZero = (RadioButton) findViewById(R.id.sore_throat_zero);
+        soreThroatZero.setSelected(true);
+        soreThroatZero.setText("0");
+        soreThroatOne = (RadioButton) findViewById(R.id.sore_throat_one);
+        soreThroatOne.setText("1");
+        soreThroatTwo = (RadioButton) findViewById(R.id.sore_throat_two);
+        soreThroatTwo.setText("2");
+        soreThroatThree = (RadioButton) findViewById(R.id.sore_throat_three);
+        soreThroatThree.setText("3");
+        soreThroatFour = (RadioButton) findViewById(R.id.sore_throat_four);
+        soreThroatFour.setText("4");
 
         nextButton = (Button) findViewById(R.id.button_pain_next);
         nextButton.setText(R.string.next);
@@ -91,63 +109,63 @@ public class EnterPainActivityFixedLayout extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.headache_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[6] = "0";
                     break;
             case R.id.headache_one:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[6] = "1";
                     break;
             case R.id.headache_two:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[6] = "2";
                     break;
             case R.id.headache_three:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[6] = "3";
                     break;
             case R.id.headache_four:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[6] = "4";
                     break;
             case R.id.shoulder_pain_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[7] = "0";
                     break;
             case R.id.shoulder_pain_one:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[7] = "1";
                     break;
             case R.id.shoulder_pain_two:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[7] = "2";
                     break;
             case R.id.shoulder_pain_three:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[7] = "3";
                     break;
             case R.id.shoulder_pain_four:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[7] = "4";
                     break;
             case R.id.sore_throat_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[8] = "0";
                     break;
             case R.id.sore_throat_one:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[8] = "1";
                     break;
             case R.id.sore_throat_two:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[8] = "2";
                     break;
             case R.id.sore_throat_three:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[8] = "3";
                     break;
             case R.id.sore_throat_four:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[8] = "4";
                     break;
         }
     }
@@ -184,11 +202,11 @@ public class EnterPainActivityFixedLayout extends AppCompatActivity {
                 textToShow = getString(R.string.bar_button_text) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_delete_all_entries:
+            case R.id.action_retrieve_entries:
                 textToShow = getString(R.string.delete_all_entries) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_insert_data:
+            case R.id.action_retrieve_data:
                 //textToShow = getString(R.string.insert_dummy_data) + " Tapped";
                 //Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;

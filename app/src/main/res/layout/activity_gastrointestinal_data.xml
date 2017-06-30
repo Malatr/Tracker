@@ -21,8 +21,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_diarrhea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/diarrhea_zero"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -69,8 +71,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_food_cravings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/food_cravings_zero"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -117,8 +121,10 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/radiogroup_unreasonable_hunger"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@+id/unreasonable_hunger_zero"
                 android:orientation="horizontal">
 
                 <RadioButton

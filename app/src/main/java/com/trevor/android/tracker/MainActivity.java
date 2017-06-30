@@ -13,18 +13,25 @@ import android.widget.Toast;
 
 import com.trevor.android.tracker.data.dbHelper;
 
+import static com.trevor.android.tracker.data.StringHelper.initRowValuesStrings;
+import static com.trevor.android.tracker.data.StringHelper.rowIndexStrings;
+import static com.trevor.android.tracker.data.StringHelper.rowValuesStrings;
+import static com.trevor.android.tracker.data.StringHelper.setRowIndexStrings;
+
 public class MainActivity extends AppCompatActivity
         implements LaunchAdapter.ListItemClickListener {
 
     //Declare a TextView variable
     private static final int NUM_LIST_ITEMS = 6;
 
+    public static SQLiteDatabase db;
+
+
     // References to RecyclerView and Adapter to reset the list to its
     // "pretty" state when the reset menu item is clicked.
     //private GreenAdapter mAdapter;
     private LaunchAdapter mAdapter;
     private RecyclerView mFieldsListTextView;
-
     /*
      * If we hold a reference to our Toast, we can cancel it (if it's showing)
      * to display a new Toast. If we didn't do this, Toasts would be delayed
@@ -36,7 +43,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        rowValuesStrings = initRowValuesStrings();
+        rowIndexStrings = setRowIndexStrings();
         /*
          * Using findViewById, we get a reference to our RecyclerView from xml. This allows us to
          * do things like set the adapter of the RecyclerView and toggle the visibility.
@@ -71,7 +79,7 @@ public class MainActivity extends AppCompatActivity
 
         // get the database
         dbHelper mDbHelper = new dbHelper(this);
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        db = mDbHelper.getWritableDatabase();
     }
 
     @Override
@@ -100,18 +108,19 @@ public class MainActivity extends AppCompatActivity
 
         // show a Toast with the label of the button and return true to tell Android that I've handled this menu click
 
-        switch (item.getItemId()) {
+        switch (itemThatWasClicked) {
             case R.id.bar_button:
                 textToShow = getString(R.string.bar_button_text) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_delete_all_entries:
+            case R.id.action_retrieve_entries:
                 textToShow = getString(R.string.delete_all_entries) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_insert_data:
-                //textToShow = getString(R.string.insert_dummy_data) + " Tapped";
-                //Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
+            case R.id.action_retrieve_data:
+                onListItemClicked(NUM_LIST_ITEMS);
+                textToShow = getString(R.string.retrieve_data_button_label) + " Tapped";
+                Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
         }
         //ElseIf we do NOT handle the menu click,
@@ -157,6 +166,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 5:
                 destinationActivity = EnterSleepActivityFixedLayout.class;
+                break;
+            case 6:
+                destinationActivity = ShowRowActivityFixedLayout.class;
                 break;
         }
 

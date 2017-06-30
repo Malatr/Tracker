@@ -46,6 +46,8 @@ public class EnterMiscActivityFixedLayout extends AppCompatActivity {
 
     Button nextButton;
     private String[] mLabels;
+    private String[] mEmotionLabels;
+    private String[] mRowValuesStrings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +55,9 @@ public class EnterMiscActivityFixedLayout extends AppCompatActivity {
         // Set outer wrapper view xml for layout
         setContentView(R.layout.activity_misc_data);
         mLabels = StringHelper.getMiscLabels();
+        mEmotionLabels = StringHelper.getEmotionLabels();
         setTitle(mLabels[0]);
-
+        mRowValuesStrings = StringHelper.rowValuesStrings;
 
         workHoursLabelView = (TextView) findViewById(R.id.text_view_work_hours_label);
         workHoursLabelView.setText(mLabels[1]);
@@ -64,11 +67,16 @@ public class EnterMiscActivityFixedLayout extends AppCompatActivity {
         emotionLabelView = (TextView) findViewById(R.id.text_view_emotion_label);
         emotionLabelView.setText(mLabels[3]);
         emotionZero = (RadioButton) findViewById(R.id.emotion_zero);
-        emotionOne = (RadioButton) findViewById(R.id.emotion_one);
-        emotionTwo = (RadioButton) findViewById(R.id.emotion_two);
-        emotionThree = (RadioButton) findViewById(R.id.emotion_three);
-        emotionFour = (RadioButton) findViewById(R.id.emotion_four);
         emotionZero.setSelected(true);
+        emotionZero.setText(mEmotionLabels[0]);
+        emotionOne = (RadioButton) findViewById(R.id.emotion_one);
+        emotionOne.setText(mEmotionLabels[1]);
+        emotionTwo = (RadioButton) findViewById(R.id.emotion_two);
+        emotionTwo.setText(mEmotionLabels[2]);
+        emotionThree = (RadioButton) findViewById(R.id.emotion_three);
+        emotionThree.setText(mEmotionLabels[3]);
+        emotionFour = (RadioButton) findViewById(R.id.emotion_four);
+        emotionFour.setText(mEmotionLabels[4]);
 
         focusLabelView = (TextView) findViewById(R.id.text_view_focus_label);
         focusLabelView.setText(mLabels[4]);
@@ -81,14 +89,19 @@ public class EnterMiscActivityFixedLayout extends AppCompatActivity {
         energyLabelView = (TextView) findViewById(R.id.text_view_energy_label);
         energyLabelView.setText(mLabels[5]);
         energyZero = (RadioButton) findViewById(R.id.energy_zero);
-        energyOne = (RadioButton) findViewById(R.id.energy_one);
-        energyTwo = (RadioButton) findViewById(R.id.energy_two);
-        energyThree = (RadioButton) findViewById(R.id.energy_three);
-        energyFour = (RadioButton) findViewById(R.id.energy_four);
         energyZero.setSelected(true);
+        energyZero.setText("0");
+        energyOne = (RadioButton) findViewById(R.id.energy_one);
+        energyOne.setText("1");
+        energyTwo = (RadioButton) findViewById(R.id.energy_two);
+        energyTwo.setText("2");
+        energyThree = (RadioButton) findViewById(R.id.energy_three);
+        energyThree.setText("3");
+        energyFour = (RadioButton) findViewById(R.id.energy_four);
+        energyFour.setText("4");
 
         nextButton = (Button) findViewById(R.id.button_show_summary);
-        nextButton.setText(R.string.next);
+        nextButton.setText(R.string.show_summary);
     }
 
     public void onRadioButtonClicked(View view) {
@@ -97,55 +110,54 @@ public class EnterMiscActivityFixedLayout extends AppCompatActivity {
 
         // Check which radio button was clicked
         switch (view.getId()) {
+            case R.id.emotion_one:
+                if (checked)
+                    mRowValuesStrings[25] = "1";
+                break;
+            case R.id.emotion_two:
+                if (checked)
+                    mRowValuesStrings[25] = "2";
+                break;
+            case R.id.emotion_three:
+                if (checked)
+                    mRowValuesStrings[25] = "3";
+                break;
+            case R.id.emotion_four:
+                if (checked)
+                    mRowValuesStrings[25] = "4";
+                break;
             case R.id.focus_no:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[26] = "0";
                     break;
             case R.id.focus_yes:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[26] = "1";
                     break;
             case R.id.energy_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[27] = "0";
                     break;
             case R.id.energy_one:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[27] = "1";
                     break;
             case R.id.energy_two:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[27] = "2";
                     break;
             case R.id.energy_three:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[27] = "3";
                     break;
             case R.id.energy_four:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[27] = "4";
                     break;
             case R.id.emotion_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[25] = "0";
                     break;
-            case R.id.emotion_one:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-            case R.id.emotion_two:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-            case R.id.emotion_three:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-            case R.id.emotion_four:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-
         }
     }
 
@@ -180,11 +192,11 @@ public class EnterMiscActivityFixedLayout extends AppCompatActivity {
                 textToShow = getString(R.string.bar_button_text) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_delete_all_entries:
+            case R.id.action_retrieve_entries:
                 textToShow = getString(R.string.delete_all_entries) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_insert_data:
+            case R.id.action_retrieve_data:
                 //textToShow = getString(R.string.insert_dummy_data) + " Tapped";
                 //Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
@@ -195,6 +207,8 @@ public class EnterMiscActivityFixedLayout extends AppCompatActivity {
     }
 
     public void button_show_summary(View view) {
+        mRowValuesStrings = StringHelper.rowValuesStrings;
+        mRowValuesStrings[23] = workHoursEntryView.getText().toString();
         /*
          * Storing the Context in a variable in this case is redundant since we could have
          * just used "this" or "EnterMenstrualActivity.this" in the method call below. However, we
@@ -204,7 +218,7 @@ public class EnterMiscActivityFixedLayout extends AppCompatActivity {
         Context context = EnterMiscActivityFixedLayout.this;
         // pointer[0] = clickedItemIndex, pointer[1] = , pointer[2] = ,
         int pointers[] = {0, 0, 0};
-        Class destinationActivity = MainActivity.class;
+        Class destinationActivity = ShowSummaryActivityFixedLayout.class;
 
         /*
          * Here, we create the Intent that will start the Activity we specified above in
@@ -229,6 +243,4 @@ public class EnterMiscActivityFixedLayout extends AppCompatActivity {
          */
         startActivity(startChildActivityIntent);
     }
-
-
 }

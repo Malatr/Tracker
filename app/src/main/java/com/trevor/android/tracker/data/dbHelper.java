@@ -14,6 +14,7 @@ import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_EN
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_FOCUS;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_FOOD_CRAVINGS;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_HEADACHE;
+import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_HERPES_OUTBREAK;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_HIGH_SEX_DRIVE;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_INSOMNIA;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_NIGHTMARES;
@@ -31,10 +32,11 @@ import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_ST
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_UNREASONABLE_HUNGER;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_WORK_HOURS;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.COLUMN_NAME_WORK_HOURS_DECIMAL;
+import static com.trevor.android.tracker.data.SQLContract.tableJA.DATABASE_COLUMN_QUANTITY;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.PRIMARY_KEY;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.TABLE_NAME;
-import static com.trevor.android.tracker.data.StringHelper.RowValuesStrings;
-import static com.trevor.android.tracker.data.StringHelper.getGroupNames;
+import static com.trevor.android.tracker.data.StringHelper.rowIndexStrings;
+import static com.trevor.android.tracker.data.StringHelper.rowValuesStrings;
 
 /**
  * Created by Trevor on 6/26/2017.
@@ -64,6 +66,7 @@ public class dbHelper extends SQLiteOpenHelper {
                     COLUMN_NAME_SEX_PIA + " INTEGER, " +
                     COLUMN_NAME_SEX_ORAL + " INTEGER," +
                     COLUMN_NAME_HIGH_SEX_DRIVE + " INTEGER, " +
+                    COLUMN_NAME_HERPES_OUTBREAK + " INTEGER, " +
                     COLUMN_NAME_STEPS + " INTEGER, " +
                     COLUMN_NAME_SLEEP_TIME + " INTEGER, " +
                     COLUMN_NAME_SLEEP_TIME_DECIMAL + " INTEGER, " +
@@ -84,11 +87,15 @@ public class dbHelper extends SQLiteOpenHelper {
     }
 
     public static void insertRow() {
-        int its = 1;
-        String[] rowIndexStrings = getGroupNames();
-        for (int i = 1; i < its; i++) {
-            ContentValues values = new ContentValues();
-            values.put(rowIndexStrings[i], RowValuesStrings[i]);
+        String[] mRowIndexStrings = rowIndexStrings;
+        String[] mRowValuesStrings = rowValuesStrings;
+        ContentValues values = new ContentValues();
+
+        for (int i = 1; i < DATABASE_COLUMN_QUANTITY; i++) {
+
+            values.put(mRowIndexStrings[i], rowValuesStrings[i]);
+
+            //values.put(String.valueOf(StringHelper.rowIndexStrings[i]), String.valueOf(StringHelper.rowValuesStrings[i]));
             /*
             values.put(COLUMN_NAME_PERIOD_START, "06-07-2016");
             values.put(COLUMN_NAME_PERIOD_END, "06-08-2016");
@@ -119,6 +126,9 @@ public class dbHelper extends SQLiteOpenHelper {
         }
     }
 
+    public static void selectRow() {
+
+    }
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_ENTRIES);
     }

@@ -6,4 +6,19 @@
     <string name="insert_dummy_data">Insert dummy data</string>
     <string name="save_today_s_entries">Save Today\'s Entries</string>
     <string name="next">Next</string>
+    <string name="done_label">Done</string>
+    <string name="show_summary">Show Summary</string>
+    <string name="nope">Nope</string>
+    <string name="phone_only">Phone only</string>
+    <string name="up_late">Up late</string>
+    <string name="midnight">Mid night</string>
+    <string name="up_early">Up early</string>
+    <string name="night_calls_label">Night Calls</string>
+    <string name="yes_label">Yes</string>
+    <string name="no_label">No</string>
+    <string name="sleep_time_label">Get any sleep?</string>
+    <string name="step_count_label">How many Steps today?</string>
+    <string name="save_to_db_label">Save to Database</string>
+    <string name="go_home">Go home</string>
+    <string name="retrieve_data_button_label">Retrieve Data</string>
 </resources>

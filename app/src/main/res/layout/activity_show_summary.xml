@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+
+        <!-- scroll view wrapper, since it
+         can have only one child -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- left column wrapper -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- date wrapper -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_view_get_date_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_get_date_done_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_date_edit" />
+
+
+                    <!-- end date wrapper -->
+                </LinearLayout>
+
+                <!-- menstruation_data wrapper -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_view_period_start_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_period_start_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_menstruation_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_period_end_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_period_end_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_menstruation_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_cramps_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_cramps_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_menstruation_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_spotting_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_spotting_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_menstruation_edit" />
+
+                    <!-- end of menstruation_data wrapper -->
+                </LinearLayout>
+
+                <!-- pain_data wrapper -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_view_headache_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_headache_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_pain_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_shoulder_pain_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_shoulder_pain_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_pain_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_sore_throat_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_sore_throat_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_pain_edit" />
+
+                    <!-- end of pain_data wrapper -->
+                </LinearLayout>
+
+                <!-- gastrointestinal_data wrapper -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_view_diarrhea_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_diarrhea_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_gastrointestinal_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_food_cravings_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_food_cravings_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_gastrointestinal_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_unreasonable_hunger_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_unreasonable_hunger_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_gastrointestinal_edit" />
+
+                    <!-- end of gastrointestinal_data wrapper -->
+                </LinearLayout>
+
+                <!-- end left column wrapper -->
+            </LinearLayout>
+
+            <!-- right column wrapper -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- sexual_data wrapper -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_view_sex_piv_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_sex_piv_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_sexual_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_sex_pia_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_sex_pia_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_sexual_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_sex_oral_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_sex_oral_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_sexual_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_high_sex_drive_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_high_sex_drive_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_sexual_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_herpes_outbreak_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_herpes_outbreak_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_sexual_edit" />
+
+                    <!-- end of sexual_data wrapper -->
+                </LinearLayout>
+
+                <!-- sleep_data wrapper -->
+                <LinearLayout
+                    android:id="@+id/container_steps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_view_steps_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_steps_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_sleep_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_sleep_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_sleep_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_sleep_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_insomnia_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_insomnia_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_sleep_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_nightmares_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_nightmares_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_sleep_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_night_calls_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_night_calls_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_sleep_edit" />
+
+                    <!-- end of sleep_data wrapper -->
+                </LinearLayout>
+
+                <!-- misc_data wrapper -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_view_work_hours_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_work_hours_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_misc_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_emotion_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_emotion_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_misc_edit" />
+
+                    <TextView
+                        android:id="@+id/text_view_focus_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_focus_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_misc_edit" />
+
+
+                    <TextView
+                        android:id="@+id/text_view_energy_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/button_energy_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="button_misc_edit" />
+
+                    <!-- end of misc_data wrapper -->
+                </LinearLayout>
+
+                <!-- end of right column wrapper -->
+            </LinearLayout>
+            <!-- end of scroll view wrapper,
+            since it can have only one child -->
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_save_to_database"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="saveToDb" />
+</RelativeLayout>

@@ -20,30 +20,30 @@ import com.trevor.android.tracker.data.StringHelper;
 
 public class EnterSexualActivityFixedLayout extends AppCompatActivity {
 
-    TextView sex_pivLabelView;
-    RadioButton sex_pivZero;
-    RadioButton sex_pivOne;
+    TextView sexPIVLabelView;
+    RadioButton sexPIVZero;
+    RadioButton sexPIVOne;
 
-    TextView sex_piaLabelView;
-    RadioButton sex_piaZero;
-    RadioButton sex_piaOne;
+    TextView sexPIALabelView;
+    RadioButton sexPIAZero;
+    RadioButton sexPIAOne;
 
-    TextView sex_oralLabelView;
-    RadioButton sex_oralZero;
-    RadioButton sex_oralOne;
-    RadioButton sex_oralTwo;
+    TextView sexOralLabelView;
+    RadioButton sexOralZero;
+    RadioButton sexOralOne;
 
-    TextView high_sex_driveLabelView;
-    RadioButton high_sex_driveZero;
-    RadioButton high_sex_driveOne;
+    TextView highSexDriveLabelView;
+    RadioButton highSexDriveZero;
+    RadioButton highSexDriveOne;
 
-    TextView herpes_outbreakLabelView;
-    RadioButton herpes_outbreakZero;
-    RadioButton herpes_outbreakOne;
+    TextView herpesOutbreakLabelView;
+    RadioButton herpesOutbreakZero;
+    RadioButton herpesOutbreakOne;
 
     //Button periodStartEntryView;
     Button nextButton;
     private String[] mLabels;
+    private String[] mRowValuesStrings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,36 +51,49 @@ public class EnterSexualActivityFixedLayout extends AppCompatActivity {
         // Set outer wrapper view xml for layout
         setContentView(R.layout.activity_sexual_data);
         mLabels = StringHelper.getSexualLabels();
+        mRowValuesStrings = StringHelper.rowValuesStrings;
         setTitle(mLabels[0]);
-        sex_pivLabelView = (TextView) findViewById(R.id.text_view_sex_piv_label);
-        sex_pivLabelView.setText(mLabels[1]);
-        sex_pivZero = (RadioButton) findViewById(R.id.sex_piv_zero);
-        sex_pivOne = (RadioButton) findViewById(R.id.sex_piv_one);
-        sex_pivZero.setSelected(true);
 
-        sex_piaLabelView = (TextView) findViewById(R.id.text_view_sex_pia_label);
-        sex_piaLabelView.setText(mLabels[2]);
-        sex_piaZero = (RadioButton) findViewById(R.id.sex_pia_zero);
-        sex_piaOne = (RadioButton) findViewById(R.id.sex_pia_one);
-        sex_piaZero.setSelected(true);
 
-        sex_oralLabelView = (TextView) findViewById(R.id.text_view_sex_oral_label);
-        sex_oralLabelView.setText(mLabels[3]);
-        sex_oralZero = (RadioButton) findViewById(R.id.sex_oral_zero);
-        sex_oralOne = (RadioButton) findViewById(R.id.sex_oral_one);
-        sex_oralZero.setSelected(true);
+        sexPIVLabelView = (TextView) findViewById(R.id.text_view_sex_piv_label);
+        sexPIVLabelView.setText(mLabels[1]);
+        sexPIVZero = (RadioButton) findViewById(R.id.sex_piv_zero);
+        sexPIVZero.setSelected(true);
+        sexPIVZero.setText(R.string.no_label);
+        sexPIVOne = (RadioButton) findViewById(R.id.sex_piv_one);
+        sexPIVOne.setText(R.string.yes_label);
 
-        high_sex_driveLabelView = (TextView) findViewById(R.id.text_view_high_sex_drive_label);
-        high_sex_driveLabelView.setText(mLabels[4]);
-        high_sex_driveZero = (RadioButton) findViewById(R.id.high_sex_drive_zero);
-        high_sex_driveOne = (RadioButton) findViewById(R.id.high_sex_drive_one);
-        high_sex_driveZero.setSelected(true);
+        sexPIALabelView = (TextView) findViewById(R.id.text_view_sex_pia_label);
+        sexPIALabelView.setText(mLabels[2]);
+        sexPIAZero = (RadioButton) findViewById(R.id.sex_pia_zero);
+        sexPIAZero.setSelected(true);
+        sexPIAZero.setText(R.string.no_label);
+        sexPIAOne = (RadioButton) findViewById(R.id.sex_pia_one);
+        sexPIAOne.setText(R.string.yes_label);
 
-        herpes_outbreakLabelView = (TextView) findViewById(R.id.text_view_herpes_outbreak_label);
-        herpes_outbreakLabelView.setText(mLabels[5]);
-        herpes_outbreakZero = (RadioButton) findViewById(R.id.herpes_outbreak_zero);
-        herpes_outbreakOne = (RadioButton) findViewById(R.id.herpes_outbreak_one);
-        herpes_outbreakZero.setSelected(true);
+        sexOralLabelView = (TextView) findViewById(R.id.text_view_sex_oral_label);
+        sexOralLabelView.setText(mLabels[3]);
+        sexOralZero = (RadioButton) findViewById(R.id.sex_oral_zero);
+        sexOralZero.setSelected(true);
+        sexOralZero.setText(R.string.no_label);
+        sexOralOne = (RadioButton) findViewById(R.id.sex_oral_one);
+        sexOralOne.setText(R.string.yes_label);
+
+        highSexDriveLabelView = (TextView) findViewById(R.id.text_view_high_sex_drive_label);
+        highSexDriveLabelView.setText(mLabels[4]);
+        highSexDriveZero = (RadioButton) findViewById(R.id.high_sex_drive_zero);
+        highSexDriveZero.setSelected(true);
+        highSexDriveZero.setText(R.string.no_label);
+        highSexDriveOne = (RadioButton) findViewById(R.id.high_sex_drive_one);
+        highSexDriveOne.setText(R.string.yes_label);
+
+        herpesOutbreakLabelView = (TextView) findViewById(R.id.text_view_herpes_outbreak_label);
+        herpesOutbreakLabelView.setText(mLabels[5]);
+        herpesOutbreakZero = (RadioButton) findViewById(R.id.herpes_outbreak_zero);
+        herpesOutbreakZero.setSelected(true);
+        herpesOutbreakZero.setText(R.string.no_label);
+        herpesOutbreakOne = (RadioButton) findViewById(R.id.herpes_outbreak_one);
+        herpesOutbreakOne.setText(R.string.yes_label);
 
         nextButton = (Button) findViewById(R.id.button_sexual_next);
         nextButton.setText(R.string.next);
@@ -94,43 +107,42 @@ public class EnterSexualActivityFixedLayout extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.sex_piv_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[12] = "0";
                     break;
             case R.id.sex_piv_one:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[12] = "1";
                     break;
             case R.id.sex_pia_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
+                    mRowValuesStrings[13] = "0";
             case R.id.sex_pia_one:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[13] = "1";
                     break;
             case R.id.sex_oral_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[14] = "0";
                     break;
             case R.id.sex_oral_one:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[14] = "1";
                     break;
             case R.id.high_sex_drive_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[15] = "0";
                     break;
             case R.id.high_sex_drive_one:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[15] = "1";
                     break;
             case R.id.herpes_outbreak_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[16] = "0";
                     break;
             case R.id.herpes_outbreak_one:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[16] = "1";
                     break;
 
         }
@@ -168,11 +180,11 @@ public class EnterSexualActivityFixedLayout extends AppCompatActivity {
                 textToShow = getString(R.string.bar_button_text) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_delete_all_entries:
+            case R.id.action_retrieve_entries:
                 textToShow = getString(R.string.delete_all_entries) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_insert_data:
+            case R.id.action_retrieve_data:
                 //textToShow = getString(R.string.insert_dummy_data) + " Tapped";
                 //Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;

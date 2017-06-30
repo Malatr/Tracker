@@ -47,6 +47,8 @@ public class EnterSleepActivityFixedLayout extends AppCompatActivity {
 
     Button nextButton;
     private String[] mLabels;
+    private String[] mRowValuesStrings;
+    private String[] mNightCallsLabels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,44 +56,55 @@ public class EnterSleepActivityFixedLayout extends AppCompatActivity {
         // Set outer wrapper view xml for layout
         setContentView(R.layout.activity_sleep_data);
         mLabels = StringHelper.getSleepLabels();
+        mRowValuesStrings = StringHelper.rowValuesStrings;
+        mNightCallsLabels = StringHelper.getNightCallsLabels();
         setTitle(mLabels[0]);
 
 
         stepsLabelView = (TextView) findViewById(R.id.text_view_steps_label);
         stepsLabelView.setText(mLabels[1]);
         stepsEntryView = (EditText) findViewById(R.id.edit_text_steps_label);
-        stepsEntryView.setHint("How many Steps today?");
+        stepsEntryView.setHint(R.string.step_count_label);
 
         sleepTimeLabelView = (TextView) findViewById(R.id.text_view_sleep_label);
         sleepTimeLabelView.setText(mLabels[2]);
         sleepTimeEntryView = (EditText) findViewById(R.id.edit_text_sleep_label);
-        sleepTimeEntryView.setHint("Get any sleep?");
+        sleepTimeEntryView.setHint(R.string.sleep_time_label);
 
         insomniaLabelView = (TextView) findViewById(R.id.text_view_insomnia_label);
         insomniaLabelView.setText(mLabels[4]);
         insomniaZero = (RadioButton) findViewById(R.id.insomnia_zero);
-        insomniaOne = (RadioButton) findViewById(R.id.insomnia_one);
-        insomniaTwo = (RadioButton) findViewById(R.id.insomnia_two);
-        insomniaThree = (RadioButton) findViewById(R.id.insomnia_three);
-        insomniaFour = (RadioButton) findViewById(R.id.insomnia_four);
         insomniaZero.setSelected(true);
+        insomniaZero.setText("0");
+        insomniaOne = (RadioButton) findViewById(R.id.insomnia_one);
+        insomniaOne.setText("1");
+        insomniaTwo = (RadioButton) findViewById(R.id.insomnia_two);
+        insomniaTwo.setText("2");
+        insomniaThree = (RadioButton) findViewById(R.id.insomnia_three);
+        insomniaThree.setText("3");
+        insomniaFour = (RadioButton) findViewById(R.id.insomnia_four);
+        insomniaFour.setText("4");
 
         nightmaresLabelView = (TextView) findViewById(R.id.text_view_nightmares_label);
         nightmaresLabelView.setText(mLabels[5]);
         nightmaresNo = (RadioButton) findViewById(R.id.nightmares_no);
         nightmaresYes = (RadioButton) findViewById(R.id.nightmares_yes);
-        insomniaZero.setSelected(true);
-        nightmaresNo.setText("No");
-        nightmaresYes.setText("Yes");
+        nightmaresNo.setText(R.string.no_label);
+        nightmaresYes.setText(R.string.yes_label);
 
         nightCallsLabelView = (TextView) findViewById(R.id.text_view_night_calls_label);
-        nightCallsLabelView.setText(mLabels[6]);
+        nightCallsLabelView.setText(R.string.night_calls_label);
         nightCallsZero = (RadioButton) findViewById(R.id.night_calls_zero);
-        nightCallsOne = (RadioButton) findViewById(R.id.night_calls_one);
-        nightCallsTwo = (RadioButton) findViewById(R.id.night_calls_two);
-        nightCallsThree = (RadioButton) findViewById(R.id.night_calls_three);
-        nightCallsFour = (RadioButton) findViewById(R.id.night_calls_four);
         nightCallsZero.setSelected(true);
+        nightCallsZero.setText(R.string.nope);
+        nightCallsOne = (RadioButton) findViewById(R.id.night_calls_one);
+        nightCallsOne.setText(R.string.phone_only);
+        nightCallsTwo = (RadioButton) findViewById(R.id.night_calls_two);
+        nightCallsTwo.setText(R.string.up_late);
+        nightCallsThree = (RadioButton) findViewById(R.id.night_calls_three);
+        nightCallsThree.setText(R.string.midnight);
+        nightCallsFour = (RadioButton) findViewById(R.id.night_calls_four);
+        nightCallsFour.setText(R.string.up_early);
 
         nextButton = (Button) findViewById(R.id.button_sleep_next);
         nextButton.setText(R.string.next);
@@ -103,55 +116,54 @@ public class EnterSleepActivityFixedLayout extends AppCompatActivity {
 
         // Check which radio button was clicked
         switch (view.getId()) {
-            case R.id.nightmares_no:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-            case R.id.nightmares_yes:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-            case R.id.night_calls_zero:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-            case R.id.night_calls_one:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-            case R.id.night_calls_two:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-            case R.id.night_calls_three:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
-            case R.id.night_calls_four:
-                if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
             case R.id.insomnia_zero:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
-                    break;
+                    mRowValuesStrings[20] = "0";
+                break;
             case R.id.insomnia_one:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[20] = "1";
                     break;
             case R.id.insomnia_two:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[20] = "2";
                     break;
             case R.id.insomnia_three:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[20] = "3";
                     break;
             case R.id.insomnia_four:
                 if (checked)
-                    // TODO: 6/28/2017 set flag in SQL
+                    mRowValuesStrings[20] = "4";
                     break;
-
+            case R.id.nightmares_no:
+                if (checked)
+                    mRowValuesStrings[21] = "0";
+                    break;
+            case R.id.nightmares_yes:
+                if (checked)
+                    mRowValuesStrings[21] = "1";
+                    break;
+            case R.id.night_calls_zero:
+                if (checked)
+                    mRowValuesStrings[22] = getString(R.string.nope);
+                    break;
+            case R.id.night_calls_one:
+                if (checked)
+                    mRowValuesStrings[22] = getString(R.string.phone_only);
+                    break;
+            case R.id.night_calls_two:
+                if (checked)
+                    mRowValuesStrings[22] = getString(R.string.up_late);
+                    break;
+            case R.id.night_calls_three:
+                if (checked)
+                    mRowValuesStrings[22] = getString(R.string.midnight);
+                    break;
+            case R.id.night_calls_four:
+                if (checked)
+                    mRowValuesStrings[22] = getString(R.string.up_early);
+                    break;
         }
     }
 
@@ -186,11 +198,11 @@ public class EnterSleepActivityFixedLayout extends AppCompatActivity {
                 textToShow = getString(R.string.bar_button_text) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_delete_all_entries:
+            case R.id.action_retrieve_entries:
                 textToShow = getString(R.string.delete_all_entries) + " Tapped";
                 Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.action_insert_data:
+            case R.id.action_retrieve_data:
                 //textToShow = getString(R.string.insert_dummy_data) + " Tapped";
                 //Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
                 return true;
@@ -201,6 +213,12 @@ public class EnterSleepActivityFixedLayout extends AppCompatActivity {
     }
 
     public void button_sleep_next(View view) {
+        //mRowValuesStrings[17] = stepsEntryView.getText().toString().trim();
+        //mRowValuesStrings[18] = sleepTimeEntryView.getText().toString() .trim();
+        mRowValuesStrings[17] = "Dummy";
+        mRowValuesStrings[18] = "Dummy";
+
+
         /*
          * Storing the Context in a variable in this case is redundant since we could have
          * just used "this" or "EnterMenstrualActivity.this" in the method call below. However, we

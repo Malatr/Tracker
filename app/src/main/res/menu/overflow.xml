@@ -7,14 +7,14 @@
         android:title="@string/bar_button_text"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_insert_data"
+        android:id="@+id/action_retrieve_data"
         android:orderInCategory="1"
         android:title="@string/save_today_s_entries"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_delete_all_entries"
+        android:id="@+id/action_retrieve_entries"
         android:orderInCategory="1"
-        android:title="@string/delete_all_entries"
+        android:title="@string/retrieve_data_button_label"
         app:showAsAction="never"
         />
 </menu>

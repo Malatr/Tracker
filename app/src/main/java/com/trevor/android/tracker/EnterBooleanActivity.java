@@ -11,7 +11,7 @@ import com.trevor.android.tracker.data.StringHelper;
 import static android.icu.lang.UCharacter.toLowerCase;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_NULL;
 import static com.trevor.android.tracker.data.SQLContract.tableJA.SCALE_LEVEL_ONE;
-import static com.trevor.android.tracker.data.StringHelper.RowValuesStrings;
+import static com.trevor.android.tracker.data.StringHelper.rowValuesStrings;
 
 /**
  * Created by Trevor on 6/25/2017.
@@ -47,10 +47,10 @@ public class EnterBooleanActivity extends AppCompatActivity {
     }
 
     public void boolean_activity_false(View view) {
-        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_NULL;
+        rowValuesStrings[mActivityTitle] = SCALE_LEVEL_NULL;
     }
 
     public void boolean_activity_true(View view) {
-        RowValuesStrings[mActivityTitle] = SCALE_LEVEL_ONE;
+        rowValuesStrings[mActivityTitle] = SCALE_LEVEL_ONE;
     }
 }

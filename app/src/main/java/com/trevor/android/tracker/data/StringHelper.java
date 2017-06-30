@@ -60,8 +60,15 @@ public final class StringHelper {
     public static final String SEXUAL_DATA_TITLE = "Sexual Data";
     public static final String SLEEP_DATA_TITLE = "Steps and Sleep Data";
     public static final String MISC_DATA_TITLE = "Miscellaneous Data";
+    public static final String CALL_SCALE_LABEL_NULL = "None";
+    public static final String CALL_SCALE_LABEL_PHONE_ONLY = "Phone Only";
+    public static final String CALL_SCALE_LABEL_UP_LATE = "Up Late";
+    public static final String CALL_SCALE_LABEL_MID_NIGHT = "Mid Night";
+    public static final String CALL_SCALE_LABEL_UP_EARLY = "Up Early";
 
-    public static String[] RowValuesStrings;
+    public static String[] rowValuesStrings;
+
+    public static String[] rowIndexStrings;
 
     /**
      * This method returns a list of popular toy names from the 20th and early 21st centuries.
@@ -69,7 +76,7 @@ public final class StringHelper {
      *
      * @return A list db field names
      */
-    public static String[] knowFieldNames() {
+    public static String[] setRowIndexStrings() {
         return new String[]{
                 PRIMARY_KEY, //INTEGER PRIMARY KEY
                 COLUMN_NAME_DATE, // TEXT
@@ -171,6 +178,16 @@ public final class StringHelper {
         };
     }
 
+    public static String[] getNightCallsLabels() {
+        return new String[]{
+                CALL_SCALE_LABEL_NULL,
+                CALL_SCALE_LABEL_PHONE_ONLY,
+                CALL_SCALE_LABEL_UP_LATE,
+                CALL_SCALE_LABEL_MID_NIGHT,
+                CALL_SCALE_LABEL_UP_EARLY
+        };
+    }
+
     public static String[] getMiscLabels() {
         return new String[]{
                 MISC_DATA_TITLE,
@@ -183,64 +200,47 @@ public final class StringHelper {
         };
     }
 
-    public static String[] getRowsText() {
+    public static String[] getEmotionLabels() {
         return new String[]{
-                "06-26-2017",
-                "06-22-2017",
-                "06-27-2017",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL"
+                "Happy",
+                "Calm",
+                "Frustrated",
+                "Stressed",
+                "Cranky",
         };
     }
 
-    public int[] getRowsInt() {
-        return new int[]{
-                5, 5, 5, // Strings
-                0,
-                1,
-                2,
-                3,
-                0,
-                1,
-                2,
-                3,
-                0,
-                1,
-                2,
-                3,
-                0,
-                1,
-                0,
-                1,
-                2,
-                0,
-                1,
-                2,
-                0,
-                1,
-                2
+    public static String[] initRowValuesStrings() {
+        return new String[]{
 
+                "0",       // PRIMARY_KEY, //INTEGER PRIMARY KEY
+                "Today",   // 1 COLUMN_NAME_DATE, // TEXT
+                "Start Date", // 2 COLUMN_NAME_PERIOD_START, // TEXT
+                "End Date",// 3 COLUMN_NAME_PERIOD_END, // TEXT
+                "0", // 4 COLUMN_NAME_SPOTTING, // INTEGER
+                "0", // 5 COLUMN_NAME_CRAMPING, // INTEGER
+                "0", // 6 COLUMN_NAME_HEADACHE, // INTEGER
+                "0", // 7 COLUMN_NAME_SHOULDER_PAIN, // INTEGER
+                "0", // 8 COLUMN_NAME_SORE_THROAT, // INTEGER
+                "0", // 9 COLUMN_NAME_DIARRHEA, // INTEGER
+                "0", // 10 COLUMN_NAME_FOOD_CRAVINGS, // INTEGER
+                "0", // 11 COLUMN_NAME_UNREASONABLE_HUNGER, // INTEGER
+                "0", // 12 COLUMN_NAME_SEX_PIV, // INTEGER
+                "0", // 13 COLUMN_NAME_SEX_PIA, // INTEGER
+                "0", // 14 COLUMN_NAME_SEX_ORAL, // INTEGER
+                "0", // 15 COLUMN_NAME_HIGH_SEX_DRIVE, // INTEGER
+                "0", // 16 COLUMN_NAME_HERPES_OUTBREAK, // INTEGER
+                "0", // 17 COLUMN_NAME_STEPS, // INTEGER//
+                "0", // 18 COLUMN_NAME_SLEEP_TIME, // INTEGER
+                "0", // 19 COLUMN_NAME_SLEEP_TIME_DECIMAL,
+                "0", // 20 COLUMN_NAME_INSOMNIA, // INTEGER
+                "0", // 21 COLUMN_NAME_NIGHTMARES, // INTEGER
+                "0", // 22 COLUMN_NAME_CALL_DURING_NIGHT, // INTEGER
+                "0", // 23 COLUMN_NAME_WORK_HOURS, // INTEGER
+                "0", // 24 COLUMN_NAME_WORK_HOURS_DECIMAL, // INTEGER
+                "0", // 25 COLUMN_NAME_EMOTION, // INTEGER
+                "0", // 26 COLUMN_NAME_FOCUS, //INTEGER
+                "0", // 27 COLUMN_NAME_ENERGY, // INTEGER
         };
     }
 }
